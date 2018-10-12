@@ -1,0 +1,122 @@
+  243  history > Lab1_history.txt
+  244  ls
+  245  less Lab1_history.txt 
+  246  exit
+  247  hisroty | less
+  248  history | less
+  249  man history
+  250  history -d
+  251  history -C
+  252  ls- l
+  253  ls -l
+  254  cd
+  255  ls -l
+  256  ls -la
+  257  sudo vim .bash_history
+  258  clear
+  259  cd
+  260  ls
+  261  pwd
+  262  mkdir test
+  263  cd test/
+  264  touch file
+  265  man chmod
+  266  man chown
+  267  chmod ugo+rwx file
+  268  cat file
+  269  chmod ugo-rwx file
+  270  cat file
+  271  chmod u+rwx file
+  272  cat file
+  273  nano file
+  274  cat file
+  275  ll file
+  276  man chmod u=w file
+  277  chmod u=w file
+  278  ll file
+  279  nano file
+  280  cat file
+  281  sudo cat file
+  282  hcmod g+r file
+  283  chmod g+r file
+  284  ll file
+  285  cat file
+  286  sudo cat file
+  287  ls -l
+  288  chmod ug+r file
+  289  ls -l
+  290  cat file
+  291  ls
+  292  pwd
+  293  echo "test test" > file
+  294  echo test test nnnn  > file
+  295  cat file
+  296  cd
+  297  ls
+  298  ls -l
+  299  mkdir 
+  300  mkdir dir
+  301  cd dir
+  302  touch new_file
+  303  ls
+  304  echo 'file 2' > new_file
+  305  cat new_file 
+  306  ls -l
+  307  pwd
+  308  cd ..
+  309  ls
+  310  chmod -R ugo-x dir
+  311  sudo chmod -R ugo-x dir
+  312  cat dir/new_file 
+  313  rm dir/new_file 
+  314  man man chown
+  315  man chown
+  316  s
+  317  ls
+  318  cat test
+  319  ls test
+  320  cd test
+  321  ls
+  322  chown root file
+  323  sudo chown root file
+  324  ls -l
+  325  sudo chown root:root file
+  326  ls -l
+  327  man umask
+  328  ls -l
+  329  umask
+  330  sudo umask
+  331  cd
+  332  history > lab2_hist_part1.txt
+  333  ls
+  334  ls dir
+  335  history | less
+  336  ls
+  337  ls dir
+  338  cd dir
+  339  sudo cd dir
+  340  ls
+  341  cd /dir
+  342  cd dir/
+  343  sudo cd dir/
+  344  ls
+  345  touch dir/file2
+  346  man chown
+  347  ls
+  348  ls /dir
+  349  chown dir/new_file
+  350  chown root dir/new_file
+  351  umask
+  352  man umask
+  353  umask 0000
+  354  touch file2
+  355  ls -l
+  356  ls
+  357  echo test/file
+  358  ls -l  test/file
+  359  cat test/file
+  360  ls -lR
+  361  history | less
+  362  pwd
+  363  ls
+  364  history > Lab2_hist.txt
