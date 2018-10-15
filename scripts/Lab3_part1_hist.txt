@@ -1,0 +1,816 @@
+    1  ls
+    2  pwd
+    3  python
+    4  python3
+    5  yum install python3
+    6  sudo yum install python3
+    7  yum -y update
+    8  sudo yum -y update
+    9  yum groupinstall -y 'development tools'
+   10  sudo yum groupinstall -y 'development tools'
+   11  sudo yum install -y zlib-dev openssl-devel sqlite-devel bzip2-devel
+   12  yum install epel-release
+   13  sudo yum install epel-release
+   14  yum install python36
+   15  sudo yum install python36
+   16  python36 -V
+   17  sudo yum install python36-pip
+   18  sudo yum install python-pip
+   19  pip -V
+   20  python36 -m -venv
+   21  python36
+   22  sudo yum install google-chrome-stable
+   23  su
+   24  sudo yum install -y google-chrome-stable
+   25  python36 -m venv env
+   26  ls
+   27  source env/bin/activate
+   28  python -V
+   29  pip install jupyter
+   30  pip install pandas
+   31  pip install sklearn
+   32  pip install seaborn
+   33  jupyter-notebook 
+   34  sudo yum build-dep python-psycopg2
+   35  ls
+   36  pwd
+   37  ls
+   38  pwd
+   39  source env/bin/activete
+   40  source env/bin/activate
+   41  pip install matplotlib
+   42  jupyter-notebook 
+   43  pip install keras
+   44  jupyter-notebook 
+   45  deactivate
+   46  history
+   47  history | less
+   48  whoami
+   49  whoam
+   50  whoami
+   51  echo "helolo world"
+   52  echo helolo world
+   53  apropos -s1 время
+   54  date
+   55  cal
+   56  man cal
+   57  cal 3
+   58  history
+   59  lear
+   60  clear
+   61  pwd
+   62  cd /
+   63  ls
+   64  cd ..
+   65  pwd
+   66  ls /var
+   67  cd ~
+   68  cd
+   69  pwd
+   70  ls
+   71  ls -l
+   72  man ls
+   73  cd
+   74  pwd
+   75  mkdir fruits
+   76  cd /
+   77  pwd
+   78  mkdir ~/animals
+   79  touch /tmp/temp
+   80  ls
+   81  ls /home/vanes/fruits/
+   82  touch apple, banana, pineaple, lion
+   83  pwd
+   84  cd /home/vanes/fruits/
+   85  pwd
+   86  touch apple, banana, pineaple, lion
+   87  ls
+   88  ls ~
+   89  pwd
+   90  cd ..
+   91  ls
+   92  cd animals/
+   93  touch cat.txt, dog.txt, elephant.txt
+   94  ls ../fruits/apple -l
+   95  cd ../fruits
+   96  ls
+   97  ls -l
+   98  ld b*
+   99  ls b*
+  100  ls *a
+  101  ls a*
+  102  ls *a
+  103  ls
+  104  ls [bi]*
+  105  ls b* i*
+  106  cp /etc/passwd ~
+  107  cat /etc/issue
+  108  cp /etc/issue apple
+  109  cat apple
+  110  ls ..
+  111  cd lion ../animals
+  112  cp lion ../animals
+  113  ls
+  114  mv pineaple, pineapple
+  115  man wc
+  116  wc /etc/passwd
+  117  cd ~
+  118  pwd
+  119  ls
+  120  cd ..
+  121  ls
+  122  cd ..
+  123  ls
+  124  cd ~
+  125  ln -s /etc/passwd passwd_link
+  126  ls
+  127  ln -s /etc/passwd passwd_link
+  128  cat /etc/passwd
+  129  ln -s /etc/passwd passwd_link
+  130  la
+  131  ls
+  132  ln .bash_history history_hard
+  133  ls -l
+  134  ls -l ~/.bash_histiry
+  135  ls -l ~/.bash_history
+  136  ls -l history_hard 
+  137  ls -l passwd_link 
+  138  rm fruits/apple
+  139  mkdir rmme
+  140  rm rmme/
+  141  rmdir rmme/
+  142  rmdir fruits
+  143  rmdir -fr fruits
+  144  rmdir -r fruits
+  145  cat /etc/passwd /var/log/boot.log
+  146  man rmdir
+  147  man rm
+  148  rm -fr fruits/
+  149  cp /etc/init.d/ ~
+  150  ls
+  151  cp /etc/init.d/cp -r /etc/init.d/ ~ ~
+  152  cp -r /etc/init.d/ ~
+  153  ls
+  154  rmdir init.d/
+  155  rm -r init.d/
+  156  cp -r /etc/init.d/ ~
+  157  ls init.d/
+  158  rm -r init.d/
+  159  man cut
+  160  man fold
+  161  man cut
+  162  cut -d: -f1 /etc/passwd | ???
+  163  cut -d: -f1 /etc/passwd | sort
+  164  man cut
+  165  man column
+  166  cut -d: -f1,3,4 /etc/passwd | column -ts: | less
+  167  cat /etc/passwd | column -ts:
+  168  cat /etc/passwd
+  169  cut -d: -f1,3,4 /etc/passwd | column -ts: | less
+  170  id
+  171  cut -d: -f1,3,4 /etc/passwd | column -ts: | less
+  172  cut -d: -f1,2,3,4 /etc/passwd | column -ts: | less
+  173  cut -d: -f1,2,3,4 /etc/passwd | column -ts: | sor | less
+  174  cut -d: -f1,2,3,4 /etc/passwd | column -ts: | sort | less
+  175  cat /etc/passwd
+  176  cut -d: -f1,2,3,4 /etc/passwd | column -ts: | sort | less
+  177  grep :/bin/bash /etc/passwd | wc -l
+  178  man wc
+  179  man grep
+  180  grep :/bin/bash /etc/passwd 
+  181  man sort
+  182  grep :/bin/bash /etc/passwd | sort | tail
+  183  man sort
+  184  grep :/bin/bash /etc/passwd | cut -d: -f1 | sort -r
+  185  rpm -qa --qf '%{NAME}: %{SIZE}\n' | sort -rn -k2,2 | head 25
+  186  man head
+  187  rpm -qa --qf '%{NAME}: %{SIZE}\n' | sort -rn -k2,2 | head -n 25
+  188  man rp
+  189  man rpm
+  190  man rpm -q
+  191  rpm -ql man-db | xargs -l du 2> /dev/null | sort -n
+  192  man sort
+  193  top -b -n1
+  194  top -b -n1 | sort -k2
+  195  top -b -n1 | sort -k12
+  196  top -b -n1 | awk '{printf "%35s %s\n", $12, $6}'
+  197  man awk
+  198  cat /etc/passwd
+  199  man sort
+  200  man column
+  201  cat /etc/passwd | column -ts: | sort -k1
+  202  cat /etc/passwd | column -ts: | sort -k1 | tr ":" " "
+  203  cat /etc/passwd | sort -k1 | tr ":" " "
+  204  cat /etc/passwd | sort -k1 | awk -F: '{printf "%15s %s\n", $1, $7}'
+  205  yum install -y git
+  206  su yum install -y git
+  207  sudo yum install -y git
+  208  man git
+  209  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]' | tr -d '[:punct:]' | grep -v '[^a-z]' | sort | uniq -c | sort -rn | head -5
+  210  cat user-manual.txt | tr -cs '[:alpha:]' '\n' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -rn | head -5
+  211  cat user-manual.txt
+  212  cd /usr/share/doc/git-*
+  213  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]' | tr -d '[:punct:]' | grep -v '[^a-z]' | sort | uniq -c | sort -rn | head -5
+  214  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]' | tr -d '[:punct:]' | grep -v '[^a-z]' | sort | uniq -c | sort -rn | head -5cat user-manual.txt | tr -cs '[:alpha:]' '\n' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -rn | head -5
+  215  tr '[:lower:]' '[:upper:]' < user-manual.txt |  tr -d '[:punct:] \n\t' | fold -w1 | sort | uniq -c | sort -rn | head -5
+  216  tr -cs '[:alpha:]' '\n' < user-manual.txt | less | grep -E ........ | sort | uniq -c | sort -rn | head
+  217  ping ya.ru
+  218  curl wttr.in
+  219  hostname -I
+  220  hostname
+  221  curl ifconfig.me
+  222  wget https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README-ru.md | less
+  223  wget https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README-ru.md
+  224  ls
+  225  pwd
+  226  cd ~
+  227  ls
+  228  cd Labs
+  229  wget https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README-ru.md | less
+  230  ls
+  231  cat README-ru.md 
+  232  cat README-ru.md | less
+  233  id
+  234  whoami
+  235  sudo id
+  236  sudo less /var/log/messages
+  237  less /var/log/messages
+  238  history | less
+  239  pwd
+  240  rm README-ru.md 
+  241  ls
+  242  ls -l
+  243  history > Lab1_history.txt
+  244  ls
+  245  less Lab1_history.txt 
+  246  exit
+  247  hisroty | less
+  248  history | less
+  249  man history
+  250  history -d
+  251  history -C
+  252  ls- l
+  253  ls -l
+  254  cd
+  255  ls -l
+  256  ls -la
+  257  sudo vim .bash_history
+  258  clear
+  259  cd
+  260  ls
+  261  pwd
+  262  mkdir test
+  263  cd test/
+  264  touch file
+  265  man chmod
+  266  man chown
+  267  chmod ugo+rwx file
+  268  cat file
+  269  chmod ugo-rwx file
+  270  cat file
+  271  chmod u+rwx file
+  272  cat file
+  273  nano file
+  274  cat file
+  275  ll file
+  276  man chmod u=w file
+  277  chmod u=w file
+  278  ll file
+  279  nano file
+  280  cat file
+  281  sudo cat file
+  282  hcmod g+r file
+  283  chmod g+r file
+  284  ll file
+  285  cat file
+  286  sudo cat file
+  287  ls -l
+  288  chmod ug+r file
+  289  ls -l
+  290  cat file
+  291  ls
+  292  pwd
+  293  echo "test test" > file
+  294  echo test test nnnn  > file
+  295  cat file
+  296  cd
+  297  ls
+  298  ls -l
+  299  mkdir 
+  300  mkdir dir
+  301  cd dir
+  302  touch new_file
+  303  ls
+  304  echo 'file 2' > new_file
+  305  cat new_file 
+  306  ls -l
+  307  pwd
+  308  cd ..
+  309  ls
+  310  chmod -R ugo-x dir
+  311  sudo chmod -R ugo-x dir
+  312  cat dir/new_file 
+  313  rm dir/new_file 
+  314  man man chown
+  315  man chown
+  316  s
+  317  ls
+  318  cat test
+  319  ls test
+  320  cd test
+  321  ls
+  322  chown root file
+  323  sudo chown root file
+  324  ls -l
+  325  sudo chown root:root file
+  326  ls -l
+  327  man umask
+  328  ls -l
+  329  umask
+  330  sudo umask
+  331  cd
+  332  history > lab2_hist_part1.txt
+  333  ls
+  334  su
+  335  exit
+  336  history | less
+  337  Geany
+  338  Gedit
+  339  gedit
+  340  vim
+  341  pwd
+  342  cd Labs
+  343  ls
+  344  touch hello.sh
+  345  gedit hello.sh 
+  346  bash hello.sh 
+  347  ls -l hello.sh 
+  348  chmod +x hello.sh 
+  349  ls -l hello.sh 
+  350  ./hello.sh
+  351  hello.sh
+  352  mkdir ~/bin
+  353  ls ~
+  354  cp hello.sh ~/bin
+  355  hello.sh 
+  356  ls -l ~
+  357  mkdir ~/scripts
+  358  cd ~/scripts/
+  359  su
+  360  git init
+  361  nano README
+  362  echo README 
+  363  cat README 
+  364  ls
+  365  ls -l
+  366  git config -- global user.name "IvanShmidt"
+  367  git config --global user.name "IvanShmidt"
+  368  git config --global user.email "vanusha98@yandex.ru"
+  369  git add README
+  370  git commit -m "added README"
+  371  ls
+  372  nano 1.1
+  373  git add 1.1
+  374  git commit -m "added 1.1"
+  375  git status
+  376  touch ~/file1.txt
+  377  touch ~/file2.txt
+  378  touch ~/file3.txt
+  379  ls ~/
+  380  ls
+  381  pwd
+  382  nano 1.2
+  383  bash ./1.2
+  384  find ~/ -name "*.txt"
+  385  find ~/ -maxdepth 1 -name "*.txt"
+  386  find ~/ -maxdepth 1 -name "*.txt" | wc
+  387  nano 1.2
+  388  find ~/ -maxdepth 1 -name "*.txt" | wc -l
+  389  nano 1.2
+  390  bash ./1.2
+  391  ls ~
+  392  cd~
+  393  cd ~
+  394  ls
+  395  mkdir TODO
+  396  cd TODO
+  397  cd ~
+  398  rm TODO
+  399  rmdir TODO
+  400  nano TODO
+  401  зцв
+  402  pwd
+  403  cd scripts/
+  404  nano 1.4
+  405  bash 1.4
+  406  nano 1.4
+  407  bash 1.4
+  408  nano 1.4
+  409  bash 1.4
+  410  nano 1.4
+  411  bash 1.4
+  412  nano 1.4
+  413  bash 1.4
+  414  nano 1.4
+  415  bash 1.4
+  416  nano 1.4
+  417  bash 1.4
+  418  echo date
+  419  date
+  420  man date
+  421  timr
+  422  time
+  423  date %c
+  424  man date
+  425  date %A
+  426  date%A
+  427  date -%A
+  428  date -%%A
+  429  date %%A
+  430  cal
+  431  screenfetch
+  432  sudo yum install screenfetch
+  433  top
+  434  cd /
+  435  tree
+  436  sudo yum install tree
+  437  cd /
+  438  ls
+  439  tree -2
+  440  man tree
+  441  tree -L 3
+  442  tree -L 2
+  443  clear
+  444  tree -L 2
+  445  tree usr/ -L 2
+  446  clear
+  447  ls usr/
+  448  find usr/ -size 120M
+  449  cd usr/
+  450  find . -size -20M
+  451  cd /
+  452  find /usr/ -size -20M
+  453  find /usr/ -size +20M
+  454  cd ~/scripts/
+  455  nano 1.5.sh
+  456  ls
+  457  nano 1.1
+  458  nano 1.5.sh
+  459  bash 1.5.sh
+  460  nano 1.1
+  461  ls
+  462  mv 1.1 1.1.sh
+  463  ls
+  464  bash 1.1.sh 
+  465  nano 1.1.sh 
+  466  bash 1.1.sh 
+  467  mv 1.2 1.2.sh
+  468  mv 1.4 1.4.sh
+  469  ls
+  470  ls -l
+  471  nano 1.6.sh
+  472  bash 1.6.sh 
+  473  who -q
+  474  users
+  475  goups
+  476  groups
+  477  uptime
+  478  time
+  479  date
+  480  nano 1.7.sh
+  481  bash 1.7.sh 
+  482  ls
+  483  top
+  484  man top
+  485  top -u vanes
+  486  ur
+  487  user
+  488  users
+  489  users 1
+  490  man
+  491  man users
+  492  whoami
+  493  whoami | top -u
+  494  top -u whoami
+  495  top -fu vanes
+  496  ps -f
+  497  ps
+  498  top
+  499  ps -A
+  500  ps -fd
+  501  ps -u whoami
+  502  whoami | ps -u
+  503  ps -u root
+  504  ps
+  505  ls
+  506  nano 1.8.sh
+  507  bash 1.8.sh
+  508  ps -Fe
+  509  ps -Fe --sort rss
+  510  man sort
+  511  ps -Fe --sort rss -r
+  512  ps -Fe --sort -r rss
+  513  ps -Fe --sort rss grep 5
+  514  ps -Fe --sort rss grep 10
+  515  ps -Fe --sort rss tail 6
+  516  ps -Fe --sort rss | tail 6
+  517  ps -Fe --sort rss | tail
+  518  clear
+  519  ps -Fe --sort rss | tail
+  520  ps --sort rss | tail
+  521  ps -f --sort rss | tail
+  522  ps -e --sort rss | tail
+  523  ps -fe --sort rss | tail
+  524  ps -A --sort rss | tail
+  525  ps -A --sort rss | tail 6
+  526  ps -a
+  527  ps -f
+  528  ps -A -u vanes
+  529  ps -Af -u vanes
+  530  ps -Ae -u vanes
+  531  ps -A -u root
+  532  ps -d -u root
+  533  ps -o pid -u root
+  534  ps -o rss -u root
+  535  ps -o rss -u root | tail
+  536  ps -o rss -u root --sort rss| tail
+  537  ps -o  rss -u root --sort rss| tail
+  538  ps -A -o rss -u root --sort rss| tail
+  539  ps -A -u root --sort rss| tail
+  540  ps -d -u root --sort rss| tail
+  541  ps -f -u root --sort rss| tail
+  542  ps -fH -u root --sort rss| tail
+  543  ps -fH --sort rss| tail
+  544  man tail
+  545  ps -fH --sort rss| tail -n 5
+  546  ps -fH --sort -r rss| tail -n 5
+  547  ps -fH -sort rss| tail -n 5
+  548  ps -fH --sort rss| tail -n 5DD11111
+  549  ps -fH -sort rss| tail -n 5pwd
+  550  pdw
+  551  pwd
+  552  nano 1.9.sh
+  553  bash 1.9.sh 
+  554  nano 1.9.sh
+  555  bash 1.9.sh 
+  556  man du
+  557  du .
+  558  du .| sort
+  559  ls -l
+  560  du .
+  561  du ./1.6.sh 
+  562  du ./
+  563  man du
+  564  du -sh ./
+  565  du -h ./
+  566  du
+  567  du -f
+  568  man du
+  569  du -a
+  570  du -ah
+  571  clear
+  572  du -ah
+  573  man sort
+  574  du -ah | sort -k2
+  575  du -ah | sort -k1
+  576  du -ah | sort -k0
+  577  du -ah | sort -k0 -r
+  578  du -ah | sort -r -k0
+  579  du -ah | sort -r
+  580  du -ah | sort
+  581  du -ah | sort -k1
+  582  du -h | sort -k1
+  583  du -ah | sort -k1
+  584  du -ah ~ | sort -k1
+  585  man du
+  586  du -ah -d 1 ~ | sort -k1
+  587  du -ah -d 0 ~ | sort -k1
+  588  du -ah -d 1 ~ | sort -k1
+  589  du -ah -d 1 ~ | sort -k1 -r
+  590  du -ah -d 1 ~ | sort -k1
+  591  pwd
+  592  nano 1.10.sh
+  593  bash 1.10.sh 
+  594  man ls
+  595  ls -l -1
+  596  ls -1
+  597  ls
+  598  ls -l /dev
+  599  ls /dev
+  600  ls -l /dev | head
+  601  ls -l /dev
+  602  ls -l /dev | tail
+  603  ls -l /dev | grep ^b
+  604  ls /dev
+  605  ls -1 /dev
+  606  ls -l /dev
+  607  ls -l /dev | grep ^b
+  608  ls -l /dev | grep ^с
+  609  cd /
+  610  tree
+  611  sudo yum install tree
+  612  cd /
+  613  ls
+  614  tree -2
+  615  man tree
+  616  tree -L 3
+  617  tree -L 2
+  618  clear
+  619  tree -L 2
+  620  tree usr/ -L 2
+  621  clear
+  622  ls usr/
+  623  find usr/ -size 120M
+  624  cd usr/
+  625  find . -size -20M
+  626  cd /
+  627  find /usr/ -size -20M
+  628  find /usr/ -size +20M
+  629  cd ~/scripts/
+  630  nano 1.5.sh
+  631  ls
+  632  nano 1.1
+  633  nano 1.5.sh
+  634  bash 1.5.sh
+  635  nano 1.1
+  636  ls
+  637  mv 1.1 1.1.sh
+  638  ls
+  639  bash 1.1.sh 
+  640  nano 1.1.sh 
+  641  bash 1.1.sh 
+  642  mv 1.2 1.2.sh
+  643  mv 1.4 1.4.sh
+  644  ls
+  645  ls -l
+  646  nano 1.6.sh
+  647  bash 1.6.sh 
+  648  who -q
+  649  users
+  650  goups
+  651  groups
+  652  uptime
+  653  time
+  654  date
+  655  nano 1.7.sh
+  656  bash 1.7.sh 
+  657  ls
+  658  top
+  659  man top
+  660  top -u vanes
+  661  ur
+  662  user
+  663  users
+  664  users 1
+  665  man
+  666  man users
+  667  whoami
+  668  whoami | top -u
+  669  top -u whoami
+  670  top -fu vanes
+  671  ps -f
+  672  ps
+  673  top
+  674  ps -A
+  675  ps -fd
+  676  ps -u whoami
+  677  whoami | ps -u
+  678  ps -u root
+  679  ps
+  680  ls
+  681  nano 1.8.sh
+  682  bash 1.8.sh
+  683  ps -Fe
+  684  ps -Fe --sort rss
+  685  man sort
+  686  ps -Fe --sort rss -r
+  687  ps -Fe --sort -r rss
+  688  ps -Fe --sort rss grep 5
+  689  ps -Fe --sort rss grep 10
+  690  ps -Fe --sort rss tail 6
+  691  ps -Fe --sort rss | tail 6
+  692  ps -Fe --sort rss | tail
+  693  clear
+  694  ps -Fe --sort rss | tail
+  695  ps --sort rss | tail
+  696  ps -f --sort rss | tail
+  697  ps -e --sort rss | tail
+  698  ps -fe --sort rss | tail
+  699  ps -A --sort rss | tail
+  700  ps -A --sort rss | tail 6
+  701  ps -a
+  702  ps -f
+  703  ps -A -u vanes
+  704  ps -Af -u vanes
+  705  ps -Ae -u vanes
+  706  ps -A -u root
+  707  ps -d -u root
+  708  ps -o pid -u root
+  709  ps -o rss -u root
+  710  ps -o rss -u root | tail
+  711  ps -o rss -u root --sort rss| tail
+  712  ps -o  rss -u root --sort rss| tail
+  713  ps -A -o rss -u root --sort rss| tail
+  714  ps -A -u root --sort rss| tail
+  715  ps -d -u root --sort rss| tail
+  716  ps -f -u root --sort rss| tail
+  717  ps -fH -u root --sort rss| tail
+  718  ps -fH --sort rss| tail
+  719  man tail
+  720  ps -fH --sort rss| tail -n 5
+  721  ps -fH --sort -r rss| tail -n 5
+  722  ps -fH -sort rss| tail -n 5
+  723  ps -fH --sort rss| tail -n 5DD11111
+  724  ps -fH -sort rss| tail -n 5pwd
+  725  pdw
+  726  pwd
+  727  nano 1.9.sh
+  728  bash 1.9.sh 
+  729  nano 1.9.sh
+  730  bash 1.9.sh 
+  731  man du
+  732  du .
+  733  du .| sort
+  734  ls -l
+  735  du .
+  736  du ./1.6.sh 
+  737  du ./
+  738  man du
+  739  du -sh ./
+  740  du -h ./
+  741  du
+  742  du -f
+  743  man du
+  744  du -a
+  745  du -ah
+  746  clear
+  747  du -ah
+  748  man sort
+  749  du -ah | sort -k2
+  750  du -ah | sort -k1
+  751  du -ah | sort -k0
+  752  du -ah | sort -k0 -r
+  753  du -ah | sort -r -k0
+  754  du -ah | sort -r
+  755  du -ah | sort
+  756  du -ah | sort -k1
+  757  du -h | sort -k1
+  758  du -ah | sort -k1
+  759  du -ah ~ | sort -k1
+  760  man du
+  761  du -ah -d 1 ~ | sort -k1
+  762  du -ah -d 0 ~ | sort -k1
+  763  du -ah -d 1 ~ | sort -k1
+  764  du -ah -d 1 ~ | sort -k1 -r
+  765  du -ah -d 1 ~ | sort -k1
+  766  pwd
+  767  nano 1.10.sh
+  768  bash 1.10.sh 
+  769  man ls
+  770  ls -l -1
+  771  ls -1
+  772  ls
+  773  ls -l /dev
+  774  ls /dev
+  775  ls -l /dev | head
+  776  ls -l /dev
+  777  ls -l /dev | tail
+  778  ls -l /dev | grep ^b
+  779  ls /dev
+  780  ls -1 /dev
+  781  ls -l /dev
+  782  ls -l /dev | grep ^b
+  783  ls -l /dev | grep ^с
+  784  history | less
+  785  ls -l /dev | grep ^b
+  786  ls -l /dev | grep ^c
+  787  man ls
+  788  ls -d ~
+  789  ls -d ~/
+  790  ls ~
+  791  ls -d ~/
+  792  ls -d ~
+  793  ls  ~
+  794  ls --group-directories-first ~
+  795  ls -1 --group-directories-first ~
+  796  ls -1 -d ~
+  797  ls -l ~
+  798  ls -al | egrep -v "^d.*"
+  799  ls -al | grep -v "^d.*"
+  800  ls -al | grep -v ^d
+  801  clear
+  802* 
+  803  nano 1.11.sh
+  804  gedit 1.11.sh 
+  805  nano 1.11.sh 
+  806  nash 1.11.sh 
+  807  bash 1.11.sh 
+  808  nano 1.11.sh 
+  809  bash 1.11.sh 
+  810  nano 1.11.sh 
+  811  man grep
+  812  nano 1.11.sh 
+  813  bash 1.11.sh 
+  814  nano 1.11.sh 
+  815  bash 1.11.sh 
+  816  history > Lab3_part1_hist.txt
