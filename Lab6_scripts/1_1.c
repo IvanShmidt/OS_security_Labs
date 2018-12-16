@@ -3,13 +3,13 @@ extern char **environ;
 
 int main(int argc, char *argv[])
 {
-    char **p;
+    char **ptr;
     int n = 0;
-    for (p = environ; *p != NULL; p++)
+    for (ptr = environ; *ptr != NULL; ptr++)
         n = n+1;
     printf("Number of environment variables: %d\n", n);
     return 0;
 }
 
-//echo "" Number of enviroment variables:
+//echo " Number of enviroment variables:"
 //env | wc -l
