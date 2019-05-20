@@ -1,0 +1,295 @@
+
+  110  ll
+  111  cd BOS_rpm/
+  112  ls
+  113  nano srpt
+  114  cat srpt
+  115  ls
+  116  nano scriptt
+  117  touch script
+  118  cd ..
+  119  ls
+  120  chmod +rwx BOS_rpm/
+  121  sudo chmod +rwx BOS_rpm/
+  122  ll
+  123  man chmod
+  124  sudo chmod -ugo +rwx BOS_rpm/
+  125  sudo chmod ugo+rwx BOS_rpm/
+  126  ll
+  127  cd BOS_rpm/
+  128  ls
+  129  nano scr
+  130  ll
+  131  chmod o+x scr 
+  132  ll
+  133  scr
+  134  ls
+  135  nano src
+  136  ll
+  137  scr
+  138  ls
+  139  cat scr
+  140  ll
+  141  chmod +x scr 
+  142  ls
+  143  ll
+  144  rm scr
+  145  ll
+  146  chmod +x scr 
+  147  ls
+  148  ll
+  149  chmod +x src 
+  150  src
+  151  ll
+  152  rm src 
+  153  ls
+  154  nano bellos
+  155  bash bellos 
+  156  shmod +x bellos 
+  157  chmod +x bellos 
+  158  ll
+  159  ./bellos 
+  160  rpmdev-setuptree
+  161  ls ..
+  162  rpmbuild -ba bellos_hello.spec
+  163  sudo rpmbuild -ba bellos_hello.spec
+  164  clear
+  165  ./bellos 
+  166  cd ..
+  167  bellos
+  168  ls /tmp/
+  169  cat /tmp/LICENSE 
+  170  nano /tmp/LICENSE 
+  171  cat /tmp/LICENSE 
+  172  nano /tmp/LICENSE 
+  173  cmod +rwx /tmp/LICENSE 
+  174  chmod +rwx /tmp/LICENSE 
+  175  sudo chmod +rwx /tmp/LICENSE 
+  176  nano /tmp/LICENSE 
+  177  cat /tmp/LICENSE 
+  178  rm /tmp/LICENSE 
+  179  cat /tmp/LICENSE 
+  180  rm /tmp/LICENSE 
+  181  sudo rm /tmp/LICENSE 
+  182  cat /tmp/LICENSE 
+  183  nano /tmp/LICENSE
+  184  cat /tmp/LICENSE 
+  185  mkdir /tmp/bellos-0.1
+  186  ls
+  187  ls BOS_rpm/
+  188  pwd
+  189  ls /tmp/
+  190  rm /tmp/bello-0.1/
+  191  rm -rf /tmp/bello-0.1/
+  192  sudo rm -rf /tmp/bello-0.1/
+  193  ls /tmp/bellos-0.1/
+  194  mv BOS_rpm/bellos /tmp/bellos-0.1/
+  195  ls /tmp/bellos-0.1/
+  196  cp /tmp/LICENSE /tmp/bellos-0.1/
+  197  cd /tmp/
+  198  tar -cvzf bellos-0.1.tar.gz bellos-0.1
+  199  mv /tmp/bellos-0.1.tar.gz ~/rpmbuild/SOURCES/
+  200  ls
+  201  cd ~/
+  202  ls
+  203  pwd
+  204  su root
+  205  su root
+  206  ls
+  207  cd rpmbuild/SOURCES/
+  208  ls
+  209  cd ../SPECS/
+  210  ls
+  211  ls ssh-monitoring.service.spec 
+  212  nano ssh-monitoring.service.spec 
+  213  rpmbuild -ba ssh-monitoring.service.spec 
+  214  nano ssh-monitoring.service.spec 
+  215  rpmbuild -ba ssh-monitoring.service.spec 
+  216  nano ssh-monitoring.service.spec 
+  217  rpmbuild -ba ssh-monitoring.service.spec 
+  218  nano ssh-monitoring.service.spec 
+  219  ls
+  220  cp ssh-monitoring.service.spec  /home/vanes/BOS_rpm/system_service/
+  221  cd /home/vanes/BOS_rpm/system_service/
+  222  ls
+  223  git branc
+  224  git branch
+  225  git add .
+  226  git commit -m "added specs file: not finished yet by Churilov Ivan"
+  227  git push
+  228  git pull
+  229  ls
+  230  git push
+  231  git push origin rpm-package
+  232  ls
+  233  git add .
+  234  git commit -m "added specs unfinished. be Churilov Ivan"
+  235  git push
+  236  git push origin rpm-package
+  237  ls
+  238  git status
+  239  ls
+  240  ls /usr/lib/systemd/system/
+  241  ls
+  242  ls ..
+  243  cd ..
+  244  ;s
+  245  ls
+  246  cd rpmbuild/SOURCES/
+  247  ls
+  248  cd ssh-monitoring.service-1.0/
+  249  ls
+  250  cat ssh-monitoring.service 
+  251  ll /usr/lib/systemd/
+  252  ды
+  253  ls
+  254  vf BOS_rpm/
+  255  cd BOS_rpm/
+  256  ls
+  257  cd ..
+  258  ls
+  259  cd rpmbuild/SPECS/
+  260  ls
+  261  rpmbuild -ba ssh-monitoring.service.spec 
+  262  nano ssh-monitoring.service.spec 
+  263  rpmbuild -ba ssh-monitoring.service.spec 
+  264  sudo rpmbuild -ba ssh-monitoring.service.spec 
+  265  nano ssh-monitoring.service.spec 
+  266  rpmbuild -ba ssh-monitoring.service.spec 
+  267  nano ssh-monitoring.service.spec 
+  268  rpmbuild -ba ssh-monitoring.service.spec 
+  269  nano ssh-monitoring.service.spec 
+  270  ll /usr/lib/systemd/system
+  271  ll /usr/lib/systemd | grep "system"
+  272  ll /usr/lib/systemd
+  273  sudo rpmbuild -ba ssh-monitoring.service.spec 
+  274  nano ssh-monitoring.service.spec 
+  275  sudo rpmbuild -ba ssh-monitoring.service.spec 
+  276  man cp
+  277  nano ssh-monitoring.service.spec 
+  278  rpm --showrc | less
+  279  rpm --showrc | grep "systemd"
+  280  nano ssh-monitoring.service.spec 
+  281  rpmbuild -ba ssh-monitoring.service.spec 
+  282  nano ssh-monitoring.service.spec 
+  283  nano ssh-monitoring.service.spec
+  284  rpmbuild -ba ssh-monitoring.service.spec 
+  285  sudo rpmbuild -ba ssh-monitoring.service.spec 
+  286  nano ssh-monitoring.service.spec
+  287  rpm --showrc | grep "systemd"
+  288  rpmbuild -ba ssh-monitoring.service.spec 
+  289  cd
+  290  cd rpmbuild/
+  291  tree
+  292  nano ssh-monitoring.service.spec
+  293  nano SPECS/ssh-monitoring.service.spec
+  294  ls
+  295  cd SPECS/
+  296  ls
+  297  rpmbuild -ba ssh-monitoring.service.spec 
+  298  sudo rpmbuild -ba ssh-monitoring.service.spec 
+  299  nano SPECS/ssh-monitoring.service.spec
+  300  nano ssh-monitoring.service.spec
+  301  rpmbuild -ba ssh-monitoring.service.spec 
+  302  sudo rpmbuild -ba ssh-monitoring.service.spec 
+  303  rpmbuild -ba ssh-monitoring.service.spec 
+  304  sudo rpmbuild -ba ssh-monitoring.service.spec 
+  305  nano ssh-monitoring.service.spec
+  306  man mkdir
+  307  nano ssh-monitoring.service.spec
+  308  cd
+  309  cd rpmbuild/
+  310  tree
+  311  pwd
+  312  cd SPECS/
+  313  nano ssh-monitoring.service.spec 
+  314  rpmbuild -ba ssh-monitoring.service.spec 
+  315  sudo rpmbuild -ba ssh-monitoring.service.spec 
+  316  su -c 'rpmbuild -ba ssh-monitoring.service.spec '
+  317  ls
+  318  cd ../..
+  319  ls
+  320  ls /etc
+  321  ls /etc/shadow
+  322  cd /
+  323  ls
+  324  tree -L 3
+  325  tree -L 2
+  326  grep / 1000
+  327  man grep
+  328  grep / 1000
+  329  grep / *1000*
+  330  grep / "*1000"
+  331  grep "*1000" /
+  332  grep -r "1000$" /
+  333  sudo grep -r "1000$" /
+  334  sudo grep -r "1000$" /etc/
+  335  sudo grep -r "1000" *
+  336  sudo grep -r "1000$" *
+  337  ldd su
+  338  ldd man
+  339  whereis man
+  340  whereis su
+  341  exit
+  342  ls
+  343  clear
+  344  yum repo;ost
+  345  yum repolist
+  346  yum grouplist
+  347  rpm -qa|less
+  348  rpm -qa|wc -
+  349  rpm -qa|wc -l
+  350  rpm list installed | less
+  351  rpm -qa | grep gnuplot
+  352  rpm -qa | grep "gnuplot"
+  353  yum search gnuplot
+  354  yum info gnuplot
+  355  sudo yum insll gnuplot
+  356  sudo yum install gnuplot
+  357  rpm -ql nnuplot
+  358  rpm -ql gnuplot
+  359  rpm -qf /usr/bin/gnuplot-wx
+  360  yum deplist gnuplot
+  361  sudo rpm -e gnuplot-common
+  362  sudo yum remove gnuplot-common
+  363  touch /etc/yum.repos.d/yandex.repo
+  364  sudo touch /etc/yum.repos.d/yandex.repo
+  365  nano /etc/yum.repos.d/yandex.repo
+  366  sudo yum clean all
+  367  sudo y repolist all
+  368  sudo yum repolist all
+  369  sudo yum repolist yandex
+  370  ls /home/
+  371  ls /home/vanes/
+  372  rm -rf /home/vanes/rpmbuild/
+  373  ls /home/vanes/
+  374  sudo yum install @development-ols rpmdev* rpm-sign
+  375  sudo yum install @development-tools rpmdev* rpm-sign
+  376  cd
+  377  rpmdev-setuptree
+  378  ls
+  379  cd ~/rpmbuild/SOURCES/
+  380  mkdir B16-50522-1.0
+  381  cd B16-50522-1.0/
+  382  nano B16-50522
+  383  bash B16-50522 
+  384  chmod +x B16-50522 
+  385  ls
+  386  ./B16-50522 
+  387  cd ~/rpmbuild/SOURCES/
+  388  tar -cvzf B1-50522-1.0.tar.gz B16-50522-1.0
+  389  cd ../SPECS/
+  390  touch B16-50522.spec
+  391  nano B16-50522.spec 
+  392  rpmbuild -ba B16-50522.spec 
+  393  nano B16-50522.spec 
+  394  rpmbuild -ba B16-50522.spec 
+  395  nano B16-50522.spec 
+  396  rpmbuild -ba B16-50522.spec 
+  397  gpg2 --gen-key
+  398  sudo yum install heveged
+  399  cd /home/vanes/
+  400  ls
+  401  cd Labs_bos/
+  402  ls
+  403  history > hist.txt
