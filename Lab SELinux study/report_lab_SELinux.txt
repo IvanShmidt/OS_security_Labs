@@ -1,0 +1,1131 @@
+[vanes@localhost ~]$ ldd /bin/ls | grep selinux
+	libselinux.so.1 => /lib64/libselinux.so.1 (0x00007f89c730b000)
+
+[vanes@localhost ~]$ ls -l /etc/selinux/
+итого 8
+-rw-r--r--. 1 root root  547 дек 15 20:43 config
+drwx------. 2 root root    6 дек 15 20:43 final
+-rw-r--r--. 1 root root 2321 апр 11  2018 semanage.conf
+drwxr-xr-x. 7 root root  215 дек 15 20:52 targeted
+drwxr-xr-x. 2 root root    6 апр 11  2018 tmp
+
+[vanes@localhost ~]$ ls -l /etc/selinux/targeted/
+итого 16
+drwx------. 3 root root  152 дек 15 20:52 active
+-rw-r--r--. 1 root root 2623 апр 11  2018 booleans.subs_dist
+drwxr-xr-x. 4 root root 4096 дек 15 20:52 contexts
+drwxr-xr-x. 2 root root    6 апр 11  2018 logins
+drwxr-xr-x. 3 root root   20 дек 15 20:52 modules
+drwxr-xr-x. 2 root root   23 дек 15 20:52 policy
+-rw-------. 1 root root    0 апр 11  2018 semanage.read.LOCK
+-rw-------. 1 root root    0 апр 11  2018 semanage.trans.LOCK
+-rw-r--r--. 1 root root  607 апр 11  2018 setrans.conf
+-rw-r--r--. 1 root root  106 апр 11  2018 seusers
+
+[vanes@localhost ~]$ ls -Z /etc
+drwxr-xr-x. root root   system_u:object_r:abrt_etc_t:s0  abrt
+-rw-r--r--. root root   system_u:object_r:adjtime_t:s0   adjtime
+-rw-r--r--. root root   system_u:object_r:etc_aliases_t:s0 aliases
+-rw-r--r--. root root   system_u:object_r:etc_aliases_t:s0 aliases.db
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       alsa
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       alternatives
+drwxr-xr-x. root root   system_u:object_r:amanda_config_t:s0 amanda
+-rw-------. root root   system_u:object_r:etc_t:s0       anacrontab
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       asound.conf
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       at.deny
+drwxr-x---. root root   system_u:object_r:etc_t:s0       audisp
+drwxr-x---. root root   system_u:object_r:auditd_etc_t:s0 audit
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       autofs.conf
+-rw-------. root root   system_u:object_r:etc_t:s0       autofs_ldap_auth.conf
+-rw-r--r--. root root   system_u:object_r:bin_t:s0       auto.master
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       auto.master.d
+-rw-r--r--. root root   system_u:object_r:bin_t:s0       auto.misc
+-rwxr-xr-x. root root   system_u:object_r:bin_t:s0       auto.net
+-rwxr-xr-x. root root   system_u:object_r:bin_t:s0       auto.smb
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       avahi
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       bash_completion.d
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       bashrc
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       binfmt.d
+drwxr-xr-x. root root   system_u:object_r:bluetooth_conf_t:s0 bluetooth
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       brltty
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       brltty.conf
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       centos-release
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       centos-release-upstream
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       certmonger
+-rw-r--r--. root root   system_u:object_r:cgconfig_etc_t:s0 cgconfig.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       cgconfig.d
+-rw-r--r--. root root   system_u:object_r:cgrules_etc_t:s0 cgrules.conf
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       cgsnapshot_blacklist.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       chkconfig.d
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       chrony.conf
+-rw-r-----. root chrony system_u:object_r:chronyd_keys_t:s0 chrony.keys
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       cifs-utils
+drwxr-xr-x. root root   system_u:object_r:system_cron_spool_t:s0 cron.d
+drwxr-xr-x. root root   system_u:object_r:bin_t:s0       cron.daily
+-rw-------. root root   system_u:object_r:etc_t:s0       cron.deny
+drwxr-xr-x. root root   system_u:object_r:bin_t:s0       cron.hourly
+drwxr-xr-x. root root   system_u:object_r:bin_t:s0       cron.monthly
+-rw-r--r--. root root   system_u:object_r:system_cron_spool_t:s0 crontab
+drwxr-xr-x. root root   system_u:object_r:bin_t:s0       cron.weekly
+-rw-------. root root   system_u:object_r:etc_t:s0       crypttab
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       csh.cshrc
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       csh.login
+drwxr-xr-x. root lp     system_u:object_r:cupsd_etc_t:s0 cups
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       cupshelpers
+drwxr-xr-x. root root   system_u:object_r:dbusd_etc_t:s0 dbus-1
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       dconf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       default
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       depmod.d
+drwxr-x---. root root   system_u:object_r:dhcp_etc_t:s0  dhcp
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       DIR_COLORS
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       DIR_COLORS.256color
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       DIR_COLORS.lightbgcolor
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       dleyna-server-service.conf
+-rw-r--r--. root root   system_u:object_r:dnsmasq_etc_t:s0 dnsmasq.conf
+drwxr-xr-x. root root   system_u:object_r:dnsmasq_etc_t:s0 dnsmasq.d
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       dracut.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       dracut.conf.d
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       drirc
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       e2fsck.conf
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       enscript.cfg
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       environment
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       ethertypes
+-rw-r--r--. root root   system_u:object_r:exports_t:s0   exports
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       exports.d
+lrwxrwxrwx. root root   system_u:object_r:etc_t:s0       favicon.png -> /usr/share/icons/hicolor/16x16/apps/fedora-logo-icon.png
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       fcoe
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       festival
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       filesystems
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       firefox
+drwxr-x---. root root   system_u:object_r:firewalld_etc_rw_t:s0 firewalld
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       flatpak
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       fonts
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       fprintd.conf
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       fstab
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       fuse.conf
+drwxr-xr-x. root root   system_u:object_r:gconf_etc_t:s0 gconf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       gcrypt
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       gdbinit
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       gdbinit.d
+drwxr-xr-x. root root   system_u:object_r:xdm_etc_t:s0   gdm
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       geoclue
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       GeoIP.conf
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       GeoIP.conf.default
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       ghostscript
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       gnupg
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       GREP_COLORS
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       groff
+-rw-r--r--. root root   system_u:object_r:passwd_file_t:s0 group
+-rw-r--r--. root root   system_u:object_r:passwd_file_t:s0 group-
+lrwxrwxrwx. root root   system_u:object_r:etc_t:s0       grub2.cfg -> ../boot/grub2/grub.cfg
+lrwxrwxrwx. root root   system_u:object_r:etc_t:s0       grub2-efi.cfg -> ../boot/efi/EFI/centos/grub.cfg
+drwx------. root root   system_u:object_r:etc_t:s0       grub.d
+----------. root root   system_u:object_r:shadow_t:s0    gshadow
+----------. root root   system_u:object_r:shadow_t:s0    gshadow-
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       gss
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       gssproxy
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       host.conf
+-rw-r--r--. root root   system_u:object_r:hostname_etc_t:s0 hostname
+-rw-r--r--. root root   system_u:object_r:net_conf_t:s0  hosts
+-rw-r--r--. root root   system_u:object_r:net_conf_t:s0  hosts.allow
+-rw-r--r--. root root   system_u:object_r:net_conf_t:s0  hosts.deny
+drwxr-xr-x. root root   system_u:object_r:cupsd_etc_t:s0 hp
+drwxr-xr-x. root root   system_u:object_r:httpd_config_t:s0 httpd
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       idmapd.conf
+lrwxrwxrwx. root root   system_u:object_r:etc_t:s0       init.d -> rc.d/init.d
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       inittab
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       inputrc
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       ipa
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       iproute2
+-rw-r--r--. root root   system_u:object_r:ipsec_conf_file_t:s0 ipsec.conf
+drwx------. root root   system_u:object_r:ipsec_key_file_t:s0 ipsec.d
+-rw-------. root root   system_u:object_r:ipsec_key_file_t:s0 ipsec.secrets
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       iscsi
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       issue
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       issue.net
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       java
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       jvm
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       jvm-commmon
+-rw-r--r--. root root   system_u:object_r:kdump_etc_t:s0 kdump.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       kernel
+-rw-r--r--. root root   system_u:object_r:krb5_conf_t:s0 krb5.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       krb5.conf.d
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       ksmtuned.conf
+-rw-r--r--. root root   unconfined_u:object_r:ld_so_cache_t:s0 ld.so.cache
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       ld.so.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       ld.so.conf.d
+-rw-r-----. root root   system_u:object_r:etc_t:s0       libaudit.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       libblockdev
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       libibverbs.d
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       libnl
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       libreport
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       libuser.conf
+drwx------. root root   system_u:object_r:virt_etc_t:s0  libvirt
+-rw-r--r--. root root   system_u:object_r:locale_t:s0    locale.conf
+lrwxrwxrwx. root root   system_u:object_r:locale_t:s0    localtime -> ../usr/share/zoneinfo/Europe/Moscow
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       login.defs
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       logrotate.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       logrotate.d
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       lsm
+drwxr-xr-x. root root   system_u:object_r:lvm_etc_t:s0   lvm
+-r--r--r--. root root   system_u:object_r:machineid_t:s0 machine-id
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       magic
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       mailcap
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       mail.rc
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       makedumpfile.conf.sample
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       man_db.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       maven
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       mime.types
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       mke2fs.conf
+drwxr-xr-x. root root   system_u:object_r:modules_conf_t:s0 modprobe.d
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       modules-load.d
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       motd
+lrwxrwxrwx. root root   system_u:object_r:etc_t:s0       mtab -> /proc/self/mounts
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       mtools.conf
+drwxr-xr-x. root root   system_u:object_r:lvm_metadata_t:s0 multipath
+-rw-r--r--. root root   system_u:object_r:mysqld_etc_t:s0 my.cnf
+drwxr-xr-x. root root   system_u:object_r:mysqld_etc_t:s0 my.cnf.d
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       nanorc
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       netconfig
+drwxr-xr-x. root root   system_u:object_r:NetworkManager_etc_t:s0 NetworkManager
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       networks
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       nfs.conf
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       nfsmount.conf
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       nsswitch.conf
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       nsswitch.conf.bak
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       ntp
+-rw-r--r--. root root   system_u:object_r:net_conf_t:s0  ntp.conf
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       numad.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       oddjob
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       oddjobd.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       oddjobd.conf.d
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       openldap
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       opt
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       os-release
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       PackageKit
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       pam.d
+-rw-r--r--. root root   system_u:object_r:passwd_file_t:s0 passwd
+-rw-r--r--. root root   system_u:object_r:passwd_file_t:s0 passwd-
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       pbm2ppa.conf
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       pinforc
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       pkcs11
+drwxr-xr-x. root root   system_u:object_r:cert_t:s0      pki
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       plymouth
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       pm
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       pnm2ppa.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       polkit-1
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       popt.d
+drwxr-xr-x. root root   system_u:object_r:postfix_etc_t:s0 postfix
+drwxr-xr-x. root root   system_u:object_r:pppd_etc_t:s0  ppp
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       prelink.conf.d
+-rw-r--r--. root root   system_u:object_r:cupsd_rw_etc_t:s0 printcap
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       profile
+drwxr-xr-x. root root   system_u:object_r:bin_t:s0       profile.d
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       protocols
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       pulse
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       purple
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       python
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       qemu-ga
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       qemu-kvm
+-rw-r--r--. root root   system_u:object_r:radvd_etc_t:s0 radvd.conf
+lrwxrwxrwx. root root   system_u:object_r:etc_t:s0       rc0.d -> rc.d/rc0.d
+lrwxrwxrwx. root root   system_u:object_r:etc_t:s0       rc1.d -> rc.d/rc1.d
+lrwxrwxrwx. root root   system_u:object_r:etc_t:s0       rc2.d -> rc.d/rc2.d
+lrwxrwxrwx. root root   system_u:object_r:etc_t:s0       rc3.d -> rc.d/rc3.d
+lrwxrwxrwx. root root   system_u:object_r:etc_t:s0       rc4.d -> rc.d/rc4.d
+lrwxrwxrwx. root root   system_u:object_r:etc_t:s0       rc5.d -> rc.d/rc5.d
+lrwxrwxrwx. root root   system_u:object_r:etc_t:s0       rc6.d -> rc.d/rc6.d
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       rc.d
+lrwxrwxrwx. root root   system_u:object_r:etc_t:s0       rc.local -> rc.d/rc.local
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       rdma
+lrwxrwxrwx. root root   system_u:object_r:etc_t:s0       redhat-release -> centos-release
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       request-key.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       request-key.d
+-rw-r--r--. root root   system_u:object_r:net_conf_t:s0  resolv.conf
+-rw-r--r--. root root   system_u:object_r:net_conf_t:s0  resolv.conf.K2SVTZ
+-rw-r--r--. root root   system_u:object_r:net_conf_t:s0  resolv.conf.save
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       rpc
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       rpm
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       rpmdevtools
+-rw-r--r--. root root   system_u:object_r:rsync_etc_t:s0 rsyncd.conf
+-rw-r--r--. root root   system_u:object_r:syslog_conf_t:s0 rsyslog.conf
+drwxr-xr-x. root root   system_u:object_r:syslog_conf_t:s0 rsyslog.d
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       rwtab
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       rwtab.d
+drwxr-xr-x. root root   system_u:object_r:samba_etc_t:s0 samba
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       sane.d
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       sasl2
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       scl
+-rw-------. root root   system_u:object_r:etc_runtime_t:s0 securetty
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       security
+drwxr-xr-x. root root   system_u:object_r:selinux_config_t:s0 selinux
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       services
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       sestatus.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       setroubleshoot
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       setuptool.d
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       sgml
+----------. root root   system_u:object_r:shadow_t:s0    shadow
+----------. root root   system_u:object_r:shadow_t:s0    shadow-
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       shells
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       skel
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       smartmontools
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       sos.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       speech-dispatcher
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       ssh
+drwxr-xr-x. root root   system_u:object_r:cert_t:s0      ssl
+drwx--x--x. sssd sssd   system_u:object_r:sssd_conf_t:s0 sssd
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       statetab
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       statetab.d
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       subgid
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       subuid
+-rw-r-----. root root   system_u:object_r:etc_t:s0       sudo.conf
+-r--r-----. root root   system_u:object_r:etc_t:s0       sudoers
+drwxr-x---. root root   system_u:object_r:etc_t:s0       sudoers.d
+-rw-r-----. root root   system_u:object_r:etc_t:s0       sudo-ldap.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       sysconfig
+-rw-r--r--. root root   system_u:object_r:system_conf_t:s0 sysctl.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       sysctl.d
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       systemd
+lrwxrwxrwx. root root   system_u:object_r:etc_t:s0       system-release -> centos-release
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       system-release-cpe
+drwxr-xr-x. root root   system_u:object_r:targetd_etc_rw_t:s0 target
+-rw-------. tss  tss    system_u:object_r:etc_t:s0       tcsd.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       terminfo
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       tmpfiles.d
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       trusted-key.key
+drwxr-xr-x. root root   system_u:object_r:tuned_etc_t:s0 tuned
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       udev
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       udisks2
+drwxr-xr-x. root root   system_u:object_r:named_conf_t:s0 unbound
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       updatedb.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       UPower
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       usb_modeswitch.conf
+-rw-r--r--. root root   system_u:object_r:locale_t:s0    vconsole.conf
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       vimrc
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       virc
+drwxr-xr-x. root root   system_u:object_r:bin_t:s0       vmware-tools
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       wgetrc
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       wpa_supplicant
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       wvdial.conf
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       X11
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       xdg
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       xinetd.d
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       xml
+drwxr-xr-x. root root   system_u:object_r:etc_t:s0       yum
+-rw-r--r--. root root   system_u:object_r:etc_t:s0       yum.conf
+drwxr-xr-x. root root   system_u:object_r:system_conf_t:s0 yum.repos.d
+
+[vanes@localhost ~]$ ps Zaux
+LABEL                           USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+system_u:system_r:init_t:s0     root         1  0.4  0.0 193836  6896 ?        Ss   09:47   0:06 /usr/lib/systemd/systemd --switched-root --system --deserialize 22
+system_u:system_r:kernel_t:s0   root         2  0.0  0.0      0     0 ?        S    09:47   0:00 [kthreadd]
+system_u:system_r:kernel_t:s0   root         3  0.0  0.0      0     0 ?        S    09:47   0:00 [ksoftirqd/0]
+system_u:system_r:kernel_t:s0   root         5  0.0  0.0      0     0 ?        S<   09:47   0:00 [kworker/0:0H]
+system_u:system_r:kernel_t:s0   root         6  0.1  0.0      0     0 ?        S    09:47   0:03 [kworker/u8:0]
+system_u:system_r:kernel_t:s0   root         7  0.0  0.0      0     0 ?        S    09:47   0:00 [migration/0]
+system_u:system_r:kernel_t:s0   root         8  0.0  0.0      0     0 ?        S    09:47   0:00 [rcu_bh]
+system_u:system_r:kernel_t:s0   root         9  0.2  0.0      0     0 ?        S    09:47   0:04 [rcu_sched]
+system_u:system_r:kernel_t:s0   root        10  0.0  0.0      0     0 ?        S<   09:47   0:00 [lru-add-drain]
+system_u:system_r:kernel_t:s0   root        11  0.0  0.0      0     0 ?        S    09:47   0:00 [watchdog/0]
+system_u:system_r:kernel_t:s0   root        12  0.0  0.0      0     0 ?        S    09:47   0:00 [watchdog/1]
+system_u:system_r:kernel_t:s0   root        13  0.0  0.0      0     0 ?        S    09:47   0:00 [migration/1]
+system_u:system_r:kernel_t:s0   root        14  0.0  0.0      0     0 ?        S    09:47   0:00 [ksoftirqd/1]
+system_u:system_r:kernel_t:s0   root        16  0.0  0.0      0     0 ?        S<   09:47   0:00 [kworker/1:0H]
+system_u:system_r:kernel_t:s0   root        17  0.0  0.0      0     0 ?        S    09:47   0:00 [watchdog/2]
+system_u:system_r:kernel_t:s0   root        18  0.0  0.0      0     0 ?        S    09:47   0:00 [migration/2]
+system_u:system_r:kernel_t:s0   root        19  0.0  0.0      0     0 ?        S    09:47   0:00 [ksoftirqd/2]
+system_u:system_r:kernel_t:s0   root        21  0.0  0.0      0     0 ?        S<   09:47   0:00 [kworker/2:0H]
+system_u:system_r:kernel_t:s0   root        22  0.0  0.0      0     0 ?        S    09:47   0:00 [watchdog/3]
+system_u:system_r:kernel_t:s0   root        23  0.0  0.0      0     0 ?        S    09:47   0:00 [migration/3]
+system_u:system_r:kernel_t:s0   root        24  0.0  0.0      0     0 ?        S    09:47   0:00 [ksoftirqd/3]
+system_u:system_r:kernel_t:s0   root        26  0.0  0.0      0     0 ?        S<   09:47   0:00 [kworker/3:0H]
+system_u:system_r:kernel_t:s0   root        28  0.0  0.0      0     0 ?        S    09:47   0:00 [kdevtmpfs]
+system_u:system_r:kernel_t:s0   root        29  0.0  0.0      0     0 ?        S<   09:47   0:00 [netns]
+system_u:system_r:kernel_t:s0   root        30  0.0  0.0      0     0 ?        S    09:47   0:00 [khungtaskd]
+system_u:system_r:kernel_t:s0   root        31  0.0  0.0      0     0 ?        S<   09:47   0:00 [writeback]
+system_u:system_r:kernel_t:s0   root        32  0.0  0.0      0     0 ?        S<   09:47   0:00 [kintegrityd]
+system_u:system_r:kernel_t:s0   root        33  0.0  0.0      0     0 ?        S<   09:47   0:00 [bioset]
+system_u:system_r:kernel_t:s0   root        34  0.0  0.0      0     0 ?        S<   09:47   0:00 [kblockd]
+system_u:system_r:kernel_t:s0   root        35  0.0  0.0      0     0 ?        S<   09:47   0:00 [md]
+system_u:system_r:kernel_t:s0   root        36  0.0  0.0      0     0 ?        S<   09:47   0:00 [edac-poller]
+system_u:system_r:kernel_t:s0   root        42  0.0  0.0      0     0 ?        S    09:47   0:00 [kswapd0]
+system_u:system_r:kernel_t:s0   root        43  0.0  0.0      0     0 ?        SN   09:47   0:00 [ksmd]
+system_u:system_r:kernel_t:s0   root        44  0.0  0.0      0     0 ?        SN   09:47   0:01 [khugepaged]
+system_u:system_r:kernel_t:s0   root        45  0.0  0.0      0     0 ?        S<   09:47   0:00 [crypto]
+system_u:system_r:kernel_t:s0   root        53  0.0  0.0      0     0 ?        S<   09:47   0:00 [kthrotld]
+system_u:system_r:kernel_t:s0   root        57  0.0  0.0      0     0 ?        S<   09:47   0:00 [kmpath_rdacd]
+system_u:system_r:kernel_t:s0   root        58  0.0  0.0      0     0 ?        S<   09:47   0:00 [kaluad]
+system_u:system_r:kernel_t:s0   root        59  0.0  0.0      0     0 ?        S<   09:47   0:00 [kpsmoused]
+system_u:system_r:kernel_t:s0   root        60  0.0  0.0      0     0 ?        S    09:47   0:00 [kworker/2:2]
+system_u:system_r:kernel_t:s0   root        61  0.0  0.0      0     0 ?        S<   09:47   0:00 [ipv6_addrconf]
+system_u:system_r:kernel_t:s0   root        74  0.0  0.0      0     0 ?        S<   09:47   0:00 [deferwq]
+system_u:system_r:kernel_t:s0   root       107  0.0  0.0      0     0 ?        S    09:47   0:00 [kauditd]
+system_u:system_r:kernel_t:s0   root       276  0.0  0.0      0     0 ?        S<   09:47   0:00 [ata_sff]
+system_u:system_r:kernel_t:s0   root       286  0.0  0.0      0     0 ?        S    09:47   0:00 [scsi_eh_0]
+system_u:system_r:kernel_t:s0   root       287  0.0  0.0      0     0 ?        S<   09:47   0:00 [scsi_tmf_0]
+system_u:system_r:kernel_t:s0   root       288  0.0  0.0      0     0 ?        S    09:47   0:00 [scsi_eh_1]
+system_u:system_r:kernel_t:s0   root       289  0.0  0.0      0     0 ?        S<   09:47   0:00 [scsi_tmf_1]
+system_u:system_r:kernel_t:s0   root       304  0.0  0.0      0     0 ?        S<   09:47   0:00 [kworker/1:1H]
+system_u:system_r:kernel_t:s0   root       307  0.0  0.0      0     0 ?        S    09:47   0:01 [kworker/0:2]
+system_u:system_r:kernel_t:s0   root       308  0.0  0.0      0     0 ?        S    09:47   0:00 [i915/signal:0]
+system_u:system_r:kernel_t:s0   root       309  0.0  0.0      0     0 ?        S    09:47   0:00 [i915/signal:1]
+system_u:system_r:kernel_t:s0   root       310  0.0  0.0      0     0 ?        S    09:47   0:00 [i915/signal:2]
+system_u:system_r:kernel_t:s0   root       332  0.0  0.0      0     0 ?        S<   09:47   0:00 [nvkm-disp]
+system_u:system_r:kernel_t:s0   root       337  0.0  0.0      0     0 ?        S<   09:47   0:00 [ttm_swap]
+system_u:system_r:kernel_t:s0   root       377  0.0  0.0      0     0 ?        S<   09:47   0:00 [kdmflush]
+system_u:system_r:kernel_t:s0   root       378  0.0  0.0      0     0 ?        S<   09:47   0:00 [bioset]
+system_u:system_r:kernel_t:s0   root       393  0.0  0.0      0     0 ?        S<   09:47   0:00 [bioset]
+system_u:system_r:kernel_t:s0   root       394  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfsalloc]
+system_u:system_r:kernel_t:s0   root       395  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs_mru_cache]
+system_u:system_r:kernel_t:s0   root       396  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-buf/dm-0]
+system_u:system_r:kernel_t:s0   root       397  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-data/dm-0]
+system_u:system_r:kernel_t:s0   root       398  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-conv/dm-0]
+system_u:system_r:kernel_t:s0   root       399  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-cil/dm-0]
+system_u:system_r:kernel_t:s0   root       400  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-reclaim/dm-]
+system_u:system_r:kernel_t:s0   root       401  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-log/dm-0]
+system_u:system_r:kernel_t:s0   root       402  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-eofblocks/d]
+system_u:system_r:kernel_t:s0   root       403  0.0  0.0      0     0 ?        S    09:47   0:00 [xfsaild/dm-0]
+system_u:system_r:kernel_t:s0   root       404  0.0  0.0      0     0 ?        S<   09:47   0:00 [kworker/0:1H]
+system_u:system_r:kernel_t:s0   root       433  0.0  0.0      0     0 ?        S<   09:47   0:00 [kworker/2:1H]
+system_u:system_r:syslogd_t:s0  root       478  0.1  0.0  39440  4604 ?        Ss   09:47   0:02 /usr/lib/systemd/systemd-journald
+system_u:system_r:lvm_t:s0      root       502  0.0  0.0 192792  6120 ?        Ss   09:47   0:00 /usr/sbin/lvmetad -f
+system_u:system_r:udev_t:s0-s0:c0.c1023 root 518 0.0  0.0 47936  5436 ?        Ss   09:47   0:01 /usr/lib/systemd/systemd-udevd
+system_u:system_r:kernel_t:s0   root       558  0.0  0.0      0     0 ?        S<   09:47   0:00 [kmemstick]
+system_u:system_r:kernel_t:s0   root       559  0.0  0.0      0     0 ?        S<   09:47   0:00 [kworker/3:1H]
+system_u:system_r:kernel_t:s0   root       566  0.0  0.0      0     0 ?        S<   09:47   0:00 [cfg80211]
+system_u:system_r:kernel_t:s0   root       602  0.0  0.0      0     0 ?        S<   09:47   0:00 [kvm-irqfd-clean]
+system_u:system_r:kernel_t:s0   root       612  0.0  0.0      0     0 ?        S<   09:47   0:00 [led_workqueue]
+system_u:system_r:kernel_t:s0   root       640  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-buf/sda10]
+system_u:system_r:kernel_t:s0   root       641  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-data/sda10]
+system_u:system_r:kernel_t:s0   root       642  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-conv/sda10]
+system_u:system_r:kernel_t:s0   root       643  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-cil/sda10]
+system_u:system_r:kernel_t:s0   root       644  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-reclaim/sda]
+system_u:system_r:kernel_t:s0   root       645  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-log/sda10]
+system_u:system_r:kernel_t:s0   root       646  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-eofblocks/s]
+system_u:system_r:kernel_t:s0   root       648  0.0  0.0      0     0 ?        S    09:47   0:00 [xfsaild/sda10]
+system_u:system_r:kernel_t:s0   root       655  0.0  0.0      0     0 ?        S<   09:47   0:00 [kdmflush]
+system_u:system_r:kernel_t:s0   root       656  0.0  0.0      0     0 ?        S<   09:47   0:00 [bioset]
+system_u:system_r:kernel_t:s0   root       663  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-buf/dm-1]
+system_u:system_r:kernel_t:s0   root       664  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-data/dm-1]
+system_u:system_r:kernel_t:s0   root       665  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-conv/dm-1]
+system_u:system_r:kernel_t:s0   root       666  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-cil/dm-1]
+system_u:system_r:kernel_t:s0   root       667  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-reclaim/dm-]
+system_u:system_r:kernel_t:s0   root       668  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-log/dm-1]
+system_u:system_r:kernel_t:s0   root       669  0.0  0.0      0     0 ?        S<   09:47   0:00 [xfs-eofblocks/d]
+system_u:system_r:kernel_t:s0   root       670  0.0  0.0      0     0 ?        S    09:47   0:01 [xfsaild/dm-1]
+system_u:system_r:kernel_t:s0   root       697  0.0  0.0      0     0 ?        S<   09:47   0:00 [rpciod]
+system_u:system_r:kernel_t:s0   root       698  0.0  0.0      0     0 ?        S<   09:47   0:00 [xprtiod]
+system_u:system_r:auditd_t:s0   root       700  0.0  0.0  55508   900 ?        S<sl 09:47   0:00 /sbin/auditd
+system_u:system_r:audisp_t:s0   root       702  0.0  0.0  84552   940 ?        S<sl 09:47   0:00 /sbin/audispd
+system_u:system_r:audisp_t:s0   root       704  0.0  0.0  55596  1400 ?        S<   09:47   0:00 /usr/sbin/sedispatch
+system_u:system_r:rpcbind_t:s0  rpc        729  0.0  0.0  69220  1060 ?        Ss   09:47   0:00 /sbin/rpcbind -w
+system_u:system_r:lsmd_t:s0     libstor+   732  0.0  0.0   8576   824 ?        Ss   09:47   0:00 /usr/bin/lsmd -d
+system_u:system_r:avahi_t:s0    avahi      733  0.0  0.0  62240  2276 ?        Ss   09:47   0:00 avahi-daemon: running [linux.local]
+system_u:system_r:rtkit_daemon_t:s0 rtkit  737  0.0  0.0 198760  1788 ?        SNsl 09:47   0:00 /usr/libexec/rtkit-daemon
+system_u:system_r:systemd_logind_t:s0 root 738  0.0  0.0  26376  1816 ?        Ss   09:47   0:00 /usr/lib/systemd/systemd-logind
+system_u:system_r:irqbalance_t:s0 root     739  0.0  0.0  21524  1224 ?        Ss   09:47   0:00 /usr/sbin/irqbalance --foreground
+system_u:system_r:accountsd_t:s0 root      740  0.0  0.0 396664  4260 ?        Ssl  09:47   0:00 /usr/libexec/accounts-daemon
+system_u:system_r:policykit_t:s0 polkitd   741  0.1  0.1 542608 14816 ?        Ssl  09:47   0:02 /usr/lib/polkit-1/polkitd --no-debug
+system_u:system_r:fsdaemon_t:s0 root       743  0.0  0.0  24496  2436 ?        Ss   09:47   0:00 /usr/sbin/smartd -n -q never
+system_u:system_r:abrt_t:s0-s0:c0.c1023 root 744 0.0  0.0 228164 5816 ?        Ss   09:47   0:00 /usr/sbin/abrtd -d -s
+system_u:system_r:abrt_watch_log_t:s0 root 745  0.0  0.0 225620  4836 ?        Ss   09:47   0:00 /usr/bin/abrt-watch-log -F BUG: WARNING: at WARNING: CPU: INFO: possible recu
+system_u:system_r:unconfined_service_t:s0 root 747 0.0  0.0 447068 7152 ?      Ssl  09:47   0:00 /usr/libexec/udisks2/udisksd
+system_u:system_r:entropyd_t:s0 root       748  0.0  0.0  12184  3836 ?        Ss   09:47   0:01 /usr/sbin/haveged -w 1024 -v 1 --Foreground
+system_u:system_r:rngd_t:s0     root       756  0.0  0.0  13216   880 ?        Ss   09:47   0:00 /sbin/rngd -f
+system_u:system_r:modemmanager_t:s0 root   758  0.0  0.0 430540  5488 ?        Ssl  09:47   0:00 /usr/sbin/ModemManager
+system_u:system_r:system_dbusd_t:s0-s0:c0.c1023 dbus 759 0.3  0.0 70164 4136 ? Ssl  09:47   0:05 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --syste
+system_u:system_r:chronyd_t:s0  chrony     766  0.0  0.0 117752  1696 ?        S    09:47   0:00 /usr/sbin/chronyd
+system_u:system_r:avahi_t:s0    avahi      767  0.0  0.0  62112   404 ?        S    09:47   0:00 avahi-daemon: chroot helper
+system_u:system_r:abrt_watch_log_t:s0 root 796  0.0  0.0 225620  4836 ?        Ss   09:47   0:00 /usr/bin/abrt-watch-log -F Backtrace /var/log/Xorg.0.log -- /usr/bin/abrt-dum
+system_u:system_r:alsa_t:s0     root       797  0.0  0.0  16884  1412 ?        SNs  09:47   0:00 /usr/sbin/alsactl -s -n 19 -c -E ALSA_CONFIG_PATH=/etc/alsa/alsactl.conf --in
+system_u:system_r:ksmtuned_t:s0 root       814  0.0  0.0 115300   948 ?        S    09:47   0:00 /bin/bash /usr/sbin/ksmtuned
+system_u:system_r:firewalld_t:s0 root      818  0.1  0.3 358456 29292 ?        Ssl  09:47   0:02 /usr/bin/python -Es /usr/sbin/firewalld --nofork --nopid
+system_u:system_r:gssproxy_t:s0 root       820  0.0  0.0 201300  1244 ?        Ssl  09:47   0:00 /usr/sbin/gssproxy -D
+system_u:system_r:NetworkManager_t:s0 root 835  0.1  0.1 579176 10976 ?        Ssl  09:47   0:02 /usr/sbin/NetworkManager --no-daemon
+system_u:system_r:NetworkManager_t:s0 root 936  0.0  0.0  78748  4600 ?        Ss   09:47   0:00 /usr/sbin/wpa_supplicant -u -f /var/log/wpa_supplicant.log -c /etc/wpa_suppli
+system_u:system_r:dhcpc_t:s0    root       980  0.0  0.0 107380  5464 ?        S    09:47   0:00 /sbin/dhclient -d -q -sf /usr/libexec/nm-dhcp-helper -pf /var/run/dhclient-wl
+system_u:system_r:cupsd_t:s0-s0:c0.c1023 root 1279 0.0  0.0 198064 4456 ?      Ss   09:47   0:00 /usr/sbin/cupsd -f
+system_u:system_r:sshd_t:s0-s0:c0.c1023 root 1282 0.0  0.0 112796 4296 ?       Ss   09:47   0:00 /usr/sbin/sshd -D
+system_u:system_r:tuned_t:s0    root      1284  0.0  0.2 573824 17204 ?        Ssl  09:47   0:01 /usr/bin/python -Es /usr/sbin/tuned -l -P
+system_u:system_r:syslogd_t:s0  root      1287  0.0  0.0 216376  6464 ?        Ssl  09:47   0:00 /usr/sbin/rsyslogd -n
+system_u:system_r:httpd_t:s0    root      1292  0.0  0.0 224024  5016 ?        Ss   09:47   0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:virtd_t:s0-s0:c0.c1023 root 1293 0.0  0.2 695788 17428 ?     Ssl  09:47   0:00 /usr/sbin/libvirtd
+system_u:system_r:crond_t:s0-s0:c0.c1023 root 1297 0.0  0.0 126280 1700 ?      Ss   09:47   0:01 /usr/sbin/crond -n
+system_u:system_r:xdm_t:s0-s0:c0.c1023 root 1298 0.0  0.0 481448 4732 ?        Ssl  09:47   0:00 /usr/sbin/gdm
+system_u:system_r:crond_t:s0-s0:c0.c1023 root 1306 0.0  0.0 25904 948 ?        Ss   09:47   0:00 /usr/sbin/atd -f
+system_u:system_r:xserver_t:s0-s0:c0.c1023 root 1339 9.0  0.9 392040 75084 tty1 Ssl+ 09:47   2:29 /usr/bin/X :0 -background none -noreset -audit 4 -verbose -auth /run/gdm/aut
+system_u:system_r:postfix_master_t:s0 root 1547 0.0  0.0  91704  2132 ?        Ss   09:47   0:00 /usr/libexec/postfix/master -w
+system_u:system_r:httpd_t:s0    apache    1562  0.0  0.0 226108  3100 ?        S    09:47   0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0    apache    1563  0.0  0.0 226108  3100 ?        S    09:47   0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0    apache    1564  0.0  0.0 226108  3100 ?        S    09:47   0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0    apache    1565  0.0  0.0 226108  3100 ?        S    09:47   0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:httpd_t:s0    apache    1566  0.0  0.0 226108  3100 ?        S    09:47   0:00 /usr/sbin/httpd -DFOREGROUND
+system_u:system_r:postfix_pickup_t:s0 postfix 1582 0.0  0.0 91808 4084 ?       S    09:47   0:00 pickup -l -t unix -u
+system_u:system_r:postfix_qmgr_t:s0 postfix 1584 0.0  0.0 91876  4112 ?        S    09:47   0:00 qmgr -l -t unix -u
+system_u:system_r:dnsmasq_t:s0-s0:c0.c1023 nobody 1819 0.0  0.0 53852 1112 ?   S    09:47   0:00 /usr/sbin/dnsmasq --conf-file=/var/lib/libvirt/dnsmasq/default.conf --leasefi
+system_u:system_r:dnsmasq_t:s0-s0:c0.c1023 root 1820 0.0  0.0 53824 380 ?      S    09:47   0:00 /usr/sbin/dnsmasq --conf-file=/var/lib/libvirt/dnsmasq/default.conf --leasefi
+system_u:system_r:devicekit_power_t:s0 root 1929 0.0  0.0 430516 7372 ?        Ssl  09:48   0:01 /usr/libexec/upowerd
+system_u:system_r:rpm_t:s0      root      2003  0.0  0.0 410892  5640 ?        Ssl  09:48   0:00 /usr/libexec/packagekitd
+system_u:system_r:colord_t:s0   colord    2090  0.0  0.1 419800  8512 ?        Ssl  09:48   0:00 /usr/libexec/colord
+system_u:system_r:xdm_t:s0-s0:c0.c1023 root 2171 0.0  0.0 387980 7424 ?        Sl   09:48   0:00 gdm-session-worker [pam/gdm-password]
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2184 0.0  0.0 317660 3924 ? Sl 09:48   0:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2197 0.0  0.1 697560 9064 ? Ssl 09:48   0:01 /usr/libexec/gnome-session-binary --session gnome-classic
+system_u:system_r:xdm_t:s0-s0:c0.c1023 gdm 2207 0.0  0.0 452524  4388 ?        Sl   09:48   0:00 ibus-daemon --xim --panel disable
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2210 0.0  0.0 58860 960 ? S 09:48   0:00 dbus-launch --sh-syntax --exit-with-session
+system_u:system_r:xdm_t:s0-s0:c0.c1023 gdm 2215 0.0  0.0 376196  3580 ?        Sl   09:48   0:00 /usr/libexec/ibus-dconf
+system_u:system_r:xdm_t:s0-s0:c0.c1023 gdm 2217 0.0  0.1 484864 13296 ?        Sl   09:48   0:00 /usr/libexec/ibus-x11 --kill-daemon
+unconfined_u:unconfined_r:unconfined_dbusd_t:s0-s0:c0.c1023 vanes 2223 0.0  0.0 69356 2692 ? Ssl 09:48   0:01 /usr/bin/dbus-daemon --fork --print-pid 5 --print-address 7 --se
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2294 0.0  0.0 389648 4148 ? Sl 09:48   0:00 /usr/libexec/imsettings-daemon
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2298 0.0  0.0 388832 6088 ? Sl 09:48   0:00 /usr/libexec/gvfsd
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2303 0.0  0.0 417772 5456 ? Sl 09:48   0:00 /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f -o big_writes
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2392 0.0  0.0 72384 780 ? Ss 09:48   0:00 /usr/bin/ssh-agent /bin/sh -c exec -l /bin/bash -c "env GNOME_SHELL_SESS
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2410 0.0  0.0 346728 5652 ? Sl 09:48   0:00 /usr/libexec/at-spi-bus-launcher
+unconfined_u:unconfined_r:unconfined_dbusd_t:s0-s0:c0.c1023 vanes 2415 0.0  0.0 68368 2484 ? Sl 09:48   0:00 /bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/access
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2418 0.1  0.0 233036 3928 ? Sl 09:48   0:01 /usr/libexec/at-spi2-registryd --use-gnome-session
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2454 9.6  2.3 3805952 183220 ? Sl 09:48   2:33 /usr/bin/gnome-shell
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2463 0.0  0.0 2072168 7420 ? S<l 09:48   0:00 /usr/bin/pulseaudio --start --log-target=syslog
+system_u:system_r:bluetooth_t:s0 root     2473  0.0  0.0  57472  2556 ?        Ss   09:48   0:00 /usr/libexec/bluetooth/bluetoothd
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2486 0.0  0.0 453312 7544 ? Sl 09:48   0:00 ibus-daemon --xim --panel disable
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2491 0.0  0.0 376184 3708 ? Sl 09:48   0:00 /usr/libexec/ibus-dconf
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2493 0.0  0.1 484904 13500 ? Sl 09:48   0:00 /usr/libexec/ibus-x11 --kill-daemon
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2495 0.0  0.0 376148 3456 ? Sl 09:48   0:00 /usr/libexec/ibus-portal
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2506 0.0  0.0 425108 5196 ? Sl 09:48   0:00 /usr/libexec/xdg-permission-store
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2510 0.0  0.3 907776 28280 ? Sl 09:48   0:00 /usr/libexec/gnome-shell-calendar-server
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2522 0.0  0.0 187480 4876 ? Sl 09:48   0:00 /usr/libexec/dconf-service
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2530 0.0  0.3 926352 26796 ? Sl 09:48   0:00 /usr/libexec/evolution-source-registry
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2534 0.0  0.1 485300 14032 ? Sl 09:48   0:00 /usr/libexec/mission-control-5
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2543 0.0  0.2 909772 23356 ? Sl 09:48   0:00 /usr/libexec/goa-daemon
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2546 0.0  0.0 416224 5828 ? Sl 09:48   0:00 /usr/libexec/gvfs-udisks2-volume-monitor
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2551 0.0  0.0 478616 4496 ? Sl 09:48   0:00 /usr/libexec/gvfs-afc-volume-monitor
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2564 0.0  0.0 620996 7760 ? Sl 09:48   0:00 /usr/libexec/goa-identity-service
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2567 0.0  0.0 400724 3604 ? Sl 09:48   0:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2593 0.0  0.0 391636 3364 ? Sl 09:48   0:00 /usr/libexec/gvfs-mtp-volume-monitor
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2602 0.0  0.0 371780 3368 ? Sl 09:48   0:00 /usr/libexec/gvfs-goa-volume-monitor
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2625 0.0  0.0 611844 6876 ? Sl 09:48   0:00 /usr/libexec/gsd-account
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2629 0.0  0.0 535948 6888 ? Sl 09:48   0:00 /usr/libexec/gsd-mouse
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2631 0.0  0.1 651528 14564 ? Sl 09:48   0:00 /usr/libexec/gsd-power
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2632 0.0  0.1 561264 10580 ? Sl 09:48   0:00 /usr/libexec/gsd-print-notifications
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2634 0.0  0.1 680852 8676 ? Sl 09:48   0:00 /usr/libexec/gsd-rfkill
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2636 0.0  0.0 533368 6420 ? Sl 09:48   0:00 /usr/libexec/gsd-screensaver-proxy
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2640 0.0  0.1 638172 10748 ? Sl 09:48   0:00 /usr/libexec/gsd-smartcard
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2641 0.0  0.1 567052 13772 ? Sl 09:48   0:00 /usr/libexec/gsd-wacom
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2642 0.0  0.2 635176 16732 ? Sl 09:48   0:00 /usr/libexec/gsd-xsettings
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2648 0.0  0.1 578280 9816 ? Sl 09:48   0:00 /usr/libexec/gsd-sound
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2650 0.0  0.0 563532 5660 ? Sl 09:48   0:00 /usr/libexec/gsd-sharing
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2669 0.0  0.1 571284 13668 ? Sl 09:48   0:00 /usr/libexec/gsd-a11y-keyboard
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2671 0.0  0.0 535816 6788 ? Sl 09:48   0:00 /usr/libexec/gsd-a11y-settings
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2672 0.0  0.1 484580 13296 ? Sl 09:48   0:00 /usr/libexec/gsd-clipboard
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2673 0.0  0.1 739688 14652 ? Sl 09:48   0:00 /usr/libexec/gsd-color
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2674 0.0  0.1 571916 8200 ? Sl 09:48   0:00 /usr/libexec/gsd-datetime
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2675 0.0  0.1 618400 9500 ? Sl 09:48   0:00 /usr/libexec/gsd-housekeeping
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2678 0.0  0.1 642916 15644 ? Sl 09:48   0:00 /usr/libexec/gsd-keyboard
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2679 0.0  0.2 1165372 17360 ? Sl 09:48   0:00 /usr/libexec/gsd-media-keys
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2698 0.0  0.0 630280 7428 ? Sl 09:48   0:00 /usr/libexec/gsd-printer
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2729 0.0  0.3 886776 27136 ? Sl 09:48   0:01 nautilus-desktop --force
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2743 0.0  0.0 465052 4732 ? Sl 09:48   0:00 /usr/libexec/gvfsd-trash --spawner :1.3 /org/gtk/gvfs/exec_spaw/0
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2786 0.0  0.2 549832 16332 ? Sl 09:48   0:00 abrt-applet
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2791 0.0  0.1 525680 14440 ? Sl 09:48   0:00 /usr/libexec/tracker-store
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2792 0.1  0.5 1044536 43448 ? Sl 09:48   0:03 /usr/bin/gnome-software --gapplication-service
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2797 0.0  0.1 736864 14204 ? SNl 09:48   0:00 /usr/libexec/tracker-extract
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2810 0.0  0.1 632568 10392 ? SNl 09:48   0:00 /usr/libexec/tracker-miner-apps
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2811 0.0  0.1 649372 11812 ? SNl 09:48   0:00 /usr/libexec/tracker-miner-fs
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2812 0.0  0.1 562204 11944 ? SNl 09:48   0:00 /usr/libexec/tracker-miner-user-guides
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2815 0.0  0.1 332016 9428 ? S 09:48   0:00 /usr/bin/seapplet
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 2846 0.0  0.8 1116836 63560 ? Sl 09:48   0:00 /usr/libexec/evolution-calendar-factory
+system_u:system_r:kernel_t:s0   root      3115  0.0  0.0      0     0 ?        S    09:48   0:00 [kworker/1:3]
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 3122 0.0  0.0 302512 3568 ? Sl 09:48   0:00 /usr/libexec/ibus-engine-simple
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 3190 0.0  0.7 1210528 61648 ? Sl 09:49   0:00 /usr/libexec/evolution-calendar-factory-subprocess --factory contact
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 3214 0.0  0.3 1071632 26700 ? Sl 09:49   0:00 /usr/libexec/evolution-addressbook-factory
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 3216 0.0  0.7 1203580 61296 ? Sl 09:49   0:00 /usr/libexec/evolution-calendar-factory-subprocess --factory local -
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 3235 0.0  0.3 1248072 31044 ? Sl 09:49   0:00 /usr/libexec/evolution-addressbook-factory-subprocess --factory loca
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 3254 0.0  0.0 315864 3420 ? Sl 09:49   0:00 /usr/libexec/gvfsd-metadata
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 3263 32.3  4.9 2601484 387708 ? Sl 09:49   8:25 /usr/lib64/firefox/firefox
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 3319 0.0  0.0 181896 3076 ? S 09:49   0:00 /usr/libexec/gconfd-2
+unconfined_u:unconfined_r:mozilla_plugin_t:s0-s0:c0.c1023 vanes 3328 43.6  8.6 3032788 684788 ? Sl 09:49  11:21 /usr/lib64/firefox/plugin-container -greomni /usr/lib64/firefo
+system_u:system_r:kernel_t:s0   root      3538  0.2  0.0      0     0 ?        S    09:56   0:02 [kworker/u8:3]
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 3559 0.9  0.4 894464 32760 ? Sl 09:57   0:09 /usr/bin/nautilus --gapplication-service
+system_u:system_r:kernel_t:s0   root      3586  0.0  0.0      0     0 ?        S    09:58   0:00 [kworker/3:2]
+system_u:system_r:kernel_t:s0   root      3605  0.0  0.0      0     0 ?        S    09:59   0:00 [kworker/0:1]
+system_u:system_r:kernel_t:s0   root      3630  0.0  0.0      0     0 ?        S    10:00   0:00 [kworker/2:0]
+system_u:system_r:system_cronjob_t:s0-s0:c0.c1023 root 3670 0.0  0.0 123256 776 ? Ss 10:01   0:00 /usr/sbin/anacron -s
+system_u:system_r:kernel_t:s0   root      3729  0.0  0.0      0     0 ?        S    10:05   0:00 [kworker/1:1]
+system_u:system_r:kernel_t:s0   root      3750  0.1  0.0      0     0 ?        S    10:07   0:00 [kworker/u8:1]
+system_u:system_r:kernel_t:s0   root      3784  0.0  0.0      0     0 ?        S    10:08   0:00 [kworker/3:0]
+system_u:system_r:kernel_t:s0   root      3808  0.0  0.0      0     0 ?        S    10:10   0:00 [kworker/1:0]
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 3829 3.5  0.3 623236 29188 ? Rl 10:11   0:08 /usr/libexec/gnome-terminal-server
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 3833 0.0  0.0 8532 744 ? S 10:11   0:00 gnome-pty-helper
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 3834 0.2  0.0 118944 3620 pts/0 Ss 10:11   0:00 bash
+system_u:system_r:kernel_t:s0   root      3957  0.1  0.0      0     0 ?        S    10:13   0:00 [kworker/1:2]
+system_u:system_r:kernel_t:s0   root      3966  0.1  0.0      0     0 ?        S    10:13   0:00 [kworker/2:1]
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 3969 5.4  0.5 707000 42248 ? Sl 10:13   0:07 /usr/bin/gedit --gapplication-service
+system_u:system_r:kernel_t:s0   root      4008  0.1  0.0      0     0 ?        S    10:14   0:00 [kworker/3:1]
+system_u:system_r:ksmtuned_t:s0 root      4025  0.0  0.0 107948   356 ?        S    10:14   0:00 sleep 60
+system_u:system_r:kernel_t:s0   root      4032  0.0  0.0      0     0 ?        S    10:14   0:00 [kworker/0:0]
+system_u:system_r:kernel_t:s0   root      4033  0.0  0.0      0     0 ?        S    10:14   0:00 [kworker/u8:2]
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 4034 0.0  0.0 155324 1924 pts/0 R+ 10:15   0:00 ps Zaux
+
+[vanes@localhost ~]$ ps Zaux | grep ' passwd'
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 vanes 4050 0.0  0.0 112728 984 pts/0 S+ 10:16   0:00 grep --color=auto  passwd
+
+[vanes@localhost ~]$ netstat -Ztulpen
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       User       Inode      PID/Program name     Security Context                                 
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      0          18968      -                    -                                                 
+tcp        0      0 192.168.122.1:53        0.0.0.0:*               LISTEN      0          28366      -                    -                                                 
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      0          21935      -                    -                                                 
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      0          27000      -                    -                                                 
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      0          28049      -                    -                                                 
+tcp6       0      0 :::111                  :::*                    LISTEN      0          18971      -                    -                                                 
+tcp6       0      0 :::80                   :::*                    LISTEN      0          22211      -                    -                                                 
+tcp6       0      0 :::22                   :::*                    LISTEN      0          21937      -                    -                                                 
+tcp6       0      0 ::1:631                 :::*                    LISTEN      0          26999      -                    -                                                 
+tcp6       0      0 ::1:25                  :::*                    LISTEN      0          28050      -                    -                                                 
+udp        0      0 127.0.0.1:323           0.0.0.0:*                           0          21416      -                    -                                                 
+udp        0      0 0.0.0.0:901             0.0.0.0:*                           0          18967      -                    -                                                 
+udp        0      0 0.0.0.0:5353            0.0.0.0:*                           70         23591      -                    -                                                 
+udp        0      0 0.0.0.0:40005           0.0.0.0:*                           70         23592      -                    -                                                 
+udp        0      0 192.168.122.1:53        0.0.0.0:*                           0          28365      -                    -                                                 
+udp        0      0 0.0.0.0:67              0.0.0.0:*                           0          28362      -                    -                                                 
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           0          21808      -                    -                                                 
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           0          18966      -                    -                                                 
+udp6       0      0 ::1:323                 :::*                                0          21417      -                    -                                                 
+udp6       0      0 :::901                  :::*                                0          18970      -                    -                                                 
+udp6       0      0 :::111                  :::*                                0          18969      -                    -                                                 
+
+[vanes@localhost ~]$ sestatus
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux root directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   enforcing
+Mode from config file:          enforcing
+Policy MLS status:              enabled
+Policy deny_unknown status:     allowed
+Max kernel policy version:      31
+
+[vanes@localhost ~]$ getsebool -a | grep httpd
+httpd_anon_write --> off
+httpd_builtin_scripting --> on
+httpd_can_check_spam --> off
+httpd_can_connect_ftp --> off
+httpd_can_connect_ldap --> off
+httpd_can_connect_mythtv --> off
+httpd_can_connect_zabbix --> off
+httpd_can_network_connect --> off
+httpd_can_network_connect_cobbler --> off
+httpd_can_network_connect_db --> off
+httpd_can_network_memcache --> off
+httpd_can_network_relay --> off
+httpd_can_sendmail --> off
+httpd_dbus_avahi --> off
+httpd_dbus_sssd --> off
+httpd_dontaudit_search_dirs --> off
+httpd_enable_cgi --> on
+httpd_enable_ftp_server --> off
+httpd_enable_homedirs --> off
+httpd_execmem --> off
+httpd_graceful_shutdown --> on
+httpd_manage_ipa --> off
+httpd_mod_auth_ntlm_winbind --> off
+httpd_mod_auth_pam --> off
+httpd_read_user_content --> off
+httpd_run_ipa --> off
+httpd_run_preupgrade --> off
+httpd_run_stickshift --> off
+httpd_serve_cobbler_files --> off
+httpd_setrlimit --> off
+httpd_ssi_exec --> off
+httpd_sys_script_anon_write --> off
+httpd_tmp_exec --> off
+httpd_tty_comm --> off
+httpd_unified --> off
+httpd_use_cifs --> off
+httpd_use_fusefs --> off
+httpd_use_gpg --> off
+httpd_use_nfs --> off
+httpd_use_openstack --> off
+httpd_use_sasl --> off
+httpd_verify_dns --> off
+
+[vanes@localhost ~]$ sudo semanage fcontext -l
+. . . 
+bject_r:bin_t:s0 
+/usr/share/cluster/svclib_nfslock                  regular file       system_u:object_r:bin_t:s0 
+/usr/lib/xfce4/exo-1/exo-helper-1                  regular file       system_u:object_r:bin_t:s0 
+/var/lib/servicelog/servicelog\.db                 regular file       system_u:object_r:system_db_t:s0 
+/usr/libexec/bluetooth/bluetoothd                  regular file       system_u:object_r:bluetooth_exec_t:s0 
+/usr/libexec/min-metadata-service                  regular file       system_u:object_r:cloud_init_exec_t:s0 
+/usr/lib/cyrus-imapd/cyrus-master                  regular file       system_u:object_r:cyrus_exec_t:s0 
+/usr/lib/dirsrv/cgi-bin/ds_create                  regular file       system_u:object_r:dirsrvadmin_unconfined_script_exec_t:s0 
+/usr/lib/dirsrv/cgi-bin/ds_remove                  regular file       system_u:object_r:dirsrvadmin_unconfined_script_exec_t:s0 
+/usr/libexec/dovecot/dovecot-auth                  regular file       system_u:object_r:dovecot_auth_exec_t:s0 
+/usr/share/firstboot/firstboot\.py                 regular file       system_u:object_r:firstboot_exec_t:s0 
+/usr/libexec/nm-libreswan-service                  regular file       system_u:object_r:ipsec_mgmt_exec_t:s0 
+/usr/lib/mozilla/plugins/nppdf\.so                 regular file       system_u:object_r:textrel_shlib_t:s0 
+/usr/lib/ladspa/notch_iir_1894\.so                 regular file       system_u:object_r:textrel_shlib_t:s0 
+/usr/lib/xchat/plugins/systray\.so                 regular file       system_u:object_r:textrel_shlib_t:s0 
+/usr/lib/systemd/systemd-journald                  regular file       system_u:object_r:syslogd_exec_t:s0 
+/usr/lib/mediawiki/math/texvc_tex                  regular file       system_u:object_r:mediawiki_script_exec_t:s0 
+/usr/lib/mediawiki/math/texvc_tes                  regular file       system_u:object_r:mediawiki_script_exec_t:s0 
+/usr/sbin/umount\.ecryptfs_private                 regular file       system_u:object_r:mount_ecryptfs_exec_t:s0 
+/usr/lib/firefox/plugin-container                  regular file       system_u:object_r:mozilla_plugin_exec_t:s0 
+/usr/share/munin/plugins/fail2ban                  regular file       system_u:object_r:services_munin_plugin_exec_t:s0 
+/usr/share/munin/plugins/irqstats                  regular file       system_u:object_r:system_munin_plugin_exec_t:s0 
+/usr/share/munin/plugins/proc_pri                  regular file       system_u:object_r:system_munin_plugin_exec_t:s0 
+/var/www/nut-cgi-bin/upsimage\.cgi                 regular file       system_u:object_r:nutups_cgi_script_exec_t:s0 
+/var/www/nut-cgi-bin/upsstats\.cgi                 regular file       system_u:object_r:nutups_cgi_script_exec_t:s0 
+/usr/bin/pkla-check-authorization                  regular file       system_u:object_r:policykit_auth_exec_t:s0 
+/usr/sbin/haproxy-systemd-wrapper                  regular file       system_u:object_r:haproxy_exec_t:s0 
+/usr/sbin/system-install-packages                  regular file       system_u:object_r:rpm_exec_t:s0 
+/usr/share/yumex/yum_childtask\.py                 regular file       system_u:object_r:rpm_exec_t:s0 
+/usr/libexec/ppc64-diag/rtas_errd                  regular file       system_u:object_r:rtas_errd_exec_t:s0 
+/usr/libexec/sectool-mechanism\.py                 regular file       system_u:object_r:sectoolm_exec_t:s0 
+/usr/bin/swift-account-replicator                  regular file       system_u:object_r:swift_exec_t:s0 
+/usr/lib/systemd/systemd-machined                  regular file       system_u:object_r:systemd_machined_exec_t:s0 
+/usr/lib/systemd/systemd-networkd                  regular file       system_u:object_r:systemd_networkd_exec_t:s0 
+/usr/lib/systemd/systemd-tmpfiles                  regular file       system_u:object_r:systemd_tmpfiles_exec_t:s0 
+/usr/bin/vmware-user-suid-wrapper                  regular file       system_u:object_r:vmtools_helper_exec_t:s0 
+/var/lib/likewise-open/\.netlogond                 socket             system_u:object_r:netlogond_var_socket_t:s0 
+/var/lib/likewise-open/rpc/socket                  socket             system_u:object_r:eventlogd_var_socket_t:s0 
+/var/run/\.heim_org\.h5l\.kcm-socket               socket             system_u:object_r:sssd_var_run_t:s0 
+/etc/Pegasus/pegasus_current\.conf                 all files          system_u:object_r:pegasus_data_t:s0 
+/usr/libexec/anaconda/anaconda-yum                 regular file       system_u:object_r:install_exec_t:s0 
+/var/run/amavisd-snmp-subagent\.pid                regular file       system_u:object_r:antivirus_var_run_t:s0 
+/usr/libexec/httpd-ssl-pass-dialog                 regular file       system_u:object_r:httpd_passwd_exec_t:s0 
+/usr/share/fedora-usermgmt/wrapper                 regular file       system_u:object_r:bin_t:s0 
+/usr/share/pwlib/make/ptlib-config                 regular file       system_u:object_r:bin_t:s0 
+/usr/share/munin/plugins/plugin\.sh                regular file       system_u:object_r:bin_t:s0 
+/usr/share/printconf/util/print\.py                regular file       system_u:object_r:bin_t:s0 
+/usr/lib/xfce4/xfwm4/helper-dialog                 regular file       system_u:object_r:bin_t:s0 
+/etc/pki/tls/certs/make-dummy-cert                 regular file       system_u:object_r:bin_t:s0 
+/etc/named\.caching-nameserver\.conf               regular file       system_u:object_r:named_conf_t:s0 
+/usr/lib/courier/courier/imaplogin                 regular file       system_u:object_r:courier_pop_exec_t:s0 
+/usr/libexec/dnssec-trigger-script                 regular file       system_u:object_r:dnssec_trigger_exec_t:s0 
+/usr/share/ssl/private/dovecot\.pem                regular file       system_u:object_r:dovecot_cert_t:s0 
+/var/www/gitweb-caching/gitweb\.cgi                regular file       system_u:object_r:git_script_exec_t:s0 
+/var/kerberos/krb5kdc/kadm5\.keytab                regular file       system_u:object_r:krb5_keytab_t:s0 
+/usr/lib/ocaml/stublibs/dllnums\.so                regular file       system_u:object_r:textrel_shlib_t:s0 
+/var/lib/likewise/db/lwi_events\.db                regular file       system_u:object_r:eventlogd_var_lib_t:s0 
+/var/lib/likewise-open/\.lwsmd-lock                regular file       system_u:object_r:lwsmd_var_lib_t:s0 
+/var/lib/likewise-open/LWNetsd\.err                regular file       system_u:object_r:netlogond_var_lib_t:s0 
+/usr/lib/udev/udisks-lvm-pv-export                 regular file       system_u:object_r:lvm_exec_t:s0 
+/etc/sysconfig/update_spamassassin                 regular file       system_u:object_r:mscan_etc_t:s0 
+/usr/share/munin/plugins/processes                 regular file       system_u:object_r:system_munin_plugin_exec_t:s0 
+/usr/lib/nagios/plugins/check_disk                 regular file       system_u:object_r:nagios_checkdisk_plugin_exec_t:s0 
+/usr/sbin/NetworkManagerDispatcher                 regular file       system_u:object_r:NetworkManager_exec_t:s0 
+/usr/bin/neutron-ns-metadata-proxy                 regular file       system_u:object_r:neutron_exec_t:s0 
+/usr/bin/neutron-linuxbridge-agent                 regular file       system_u:object_r:neutron_exec_t:s0 
+/usr/bin/neutron-openvswitch-agent                 regular file       system_u:object_r:neutron_exec_t:s0 
+/usr/bin/quantum-linuxbridge-agent                 regular file       system_u:object_r:neutron_exec_t:s0 
+/usr/bin/quantum-openvswitch-agent                 regular file       system_u:object_r:neutron_exec_t:s0 
+/usr/sbin/yum-complete-transaction                 regular file       system_u:object_r:rpm_exec_t:s0 
+/usr/share/yumex/yumex-yum-backend                 regular file       system_u:object_r:rpm_exec_t:s0 
+/usr/lib/systemd/systemd-bootchart                 regular file       system_u:object_r:systemd_bootchart_exec_t:s0 
+/usr/lib/systemd/systemd-hostnamed                 regular file       system_u:object_r:systemd_hostnamed_exec_t:s0 
+/usr/lib/systemd/systemd-timedated                 regular file       system_u:object_r:systemd_timedated_exec_t:s0 
+/usr/share/authconfig/authconfig\.py               regular file       system_u:object_r:authconfig_exec_t:s0 
+/usr/share/rhn/rhn_applet/applet\.py               regular file       system_u:object_r:bin_t:s0 
+/usr/lib/ocf/resource\.d/linbit/drbd               regular file       system_u:object_r:drbd_exec_t:s0 
+/etc/rc\.d/init\.d/openstack-keystone              regular file       system_u:object_r:keystone_initrc_exec_t:s0 
+/usr/lib/vlc/codec/libdmo_plugin\.so               regular file       system_u:object_r:textrel_shlib_t:s0 
+/usr/lib/ladspa/butterworth_1902\.so               regular file       system_u:object_r:textrel_shlib_t:s0 
+/usr/lib/ladspa/lowpass_iir_1891\.so               regular file       system_u:object_r:textrel_shlib_t:s0 
+/usr/lib/ladspa/pitch_scale_1193\.so               regular file       system_u:object_r:textrel_shlib_t:s0 
+/usr/lib/ladspa/pitch_scale_1194\.so               regular file       system_u:object_r:textrel_shlib_t:s0 
+/var/lib/likewise-open/\.pstore\.lock              regular file       system_u:object_r:likewise_pstore_lock_t:s0 
+/usr/lib/systemd/systemd-cryptsetup                regular file       system_u:object_r:lvm_exec_t:s0 
+/usr/share/munin/plugins/interrupts                regular file       system_u:object_r:system_munin_plugin_exec_t:s0 
+/usr/share/munin/plugins/open_files                regular file       system_u:object_r:system_munin_plugin_exec_t:s0 
+/usr/libexec/mysqld_safe-scl-helper                regular file       system_u:object_r:mysqld_safe_exec_t:s0 
+/usr/lib/nagios/plugins/check_mailq                regular file       system_u:object_r:nagios_mail_plugin_exec_t:s0 
+/etc/rc\.d/init\.d/prelude-correlator              regular file       system_u:object_r:prelude_initrc_exec_t:s0 
+/usr/bin/swift-container-replicator                regular file       system_u:object_r:swift_exec_t:s0 
+/usr/bin/swift-container-reconciler                regular file       system_u:object_r:swift_exec_t:s0 
+/bin/systemd-tty-ask-password-agent                regular file       system_u:object_r:systemd_passwd_agent_exec_t:s0 
+/usr/bin/shotwell-video-thumbnailer                regular file       system_u:object_r:thumb_exec_t:s0 
+/var/lib/likewise-open/rpc/epmapper                socket             system_u:object_r:dcerpcd_var_socket_t:s0 
+/etc/Pegasus/cimserver_current\.conf               all files          system_u:object_r:pegasus_data_t:s0 
+/var/named/chroot/var/named/named\.ca              regular file       system_u:object_r:named_conf_t:s0 
+/usr/lib/udev/udev-configure-printer               regular file       system_u:object_r:cupsd_config_exec_t:s0 
+/usr/share/foomatic/db/oldprinterids               regular file       system_u:object_r:cupsd_rw_etc_t:s0 
+/usr/lib/ladspa/analogue_osc_1416\.so              regular file       system_u:object_r:textrel_shlib_t:s0 
+/usr/lib/ladspa/bandpass_iir_1892\.so              regular file       system_u:object_r:textrel_shlib_t:s0 
+/usr/lib/ladspa/highpass_iir_1890\.so              regular file       system_u:object_r:textrel_shlib_t:s0 
+/var/lib/likewise/krb5-affinity\.conf              regular file       system_u:object_r:netlogond_var_lib_t:s0 
+/var/lib/likewise-open/krb5ccr_lsass               regular file       system_u:object_r:lsassd_var_lib_t:s0 
+/usr/lib/man2html/cgi-bin/man/mansec               regular file       system_u:object_r:man2html_script_exec_t:s0 
+/usr/share/munin/plugins/mailscanner               regular file       system_u:object_r:mail_munin_plugin_exec_t:s0 
+/usr/lib/systemd/system/nscd\.service              regular file       system_u:object_r:nscd_unit_file_t:s0 
+/usr/libexec/polkit-read-auth-helper               regular file       system_u:object_r:policykit_auth_exec_t:s0 
+/usr/share/corosync/corosync-qdevice               regular file       system_u:object_r:cluster_exec_t:s0 
+/usr/share/rhev-agent/rhev-agentd\.py              regular file       system_u:object_r:rhev_agentd_exec_t:s0 
+/lib/systemd/system/svnserve\.service              regular file       system_u:object_r:svnserve_unit_file_t:s0 
+/var/run/systemd/resolve/resolv\.conf              regular file       system_u:object_r:net_conf_t:s0 
+/usr/libexec/telepathy-stream-engine               regular file       system_u:object_r:telepathy_stream_engine_exec_t:s0 
+/usr/share/wordpress-mu/wp-config\.php             regular file       system_u:object_r:httpd_sys_script_exec_t:s0 
+/usr/libexec/cups-pk-helper-mechanism              regular file       system_u:object_r:cupsd_config_exec_t:s0 
+/lib/dbus-1/dbus-daemon-launch-helper              regular file       system_u:object_r:dbusd_exec_t:s0 
+/etc/rc\.d/init\.d/openstack-glance-api            regular file       system_u:object_r:glance_api_initrc_exec_t:s0 
+/usr/libexec/gconf-defaults-mechanism              regular file       system_u:object_r:gconfdefaultsm_exec_t:s0 
+/usr/lib/systemd/system/kdump\.service             regular file       system_u:object_r:kdump_unit_file_t:s0 
+/opt/cisco-vpnclient/lib/libvpnapi\.so             regular file       system_u:object_r:textrel_shlib_t:s0 
+/usr/lib/firefox/plugins/libractrl\.so             regular file       system_u:object_r:textrel_shlib_t:s0 
+/usr/lib/ladspa/hermes_filter_1200\.so             regular file       system_u:object_r:textrel_shlib_t:s0 
+/var/lib/likewise/db/lsass-adcache\.db             regular file       system_u:object_r:lsassd_var_lib_t:s0 
+/var/lib/likewise-open/db/registry\.db             regular file       system_u:object_r:lwregd_var_lib_t:s0 
+/var/lib/likewise-open/run/rpcdep\.dat             regular file       system_u:object_r:dcerpcd_var_lib_t:s0 
+/usr/lib/systemd/systemd-kmsg-syslogd              regular file       system_u:object_r:syslogd_exec_t:s0 
+/usr/lib/storaged/storaged-lvm-helper              regular file       system_u:object_r:lvm_exec_t:s0 
+/usr/Zend/lib/ZendExtensionManager\.so             all files          system_u:object_r:textrel_shlib_t:s0 
+/usr/share/selinux/devel/policygentool             regular file       system_u:object_r:bin_t:s0 
+/usr/share/gnucash/finance-quote-check             regular file       system_u:object_r:bin_t:s0 
+/var/named/chroot/etc/named\.root\.hints           regular file       system_u:object_r:named_conf_t:s0 
+/usr/lib/docker/docker-novolume-plugin             regular file       system_u:object_r:container_auth_exec_t:s0 
+/usr/lib/ladspa/bandpass_a_iir_1893\.so            regular file       system_u:object_r:textrel_shlib_t:s0 
+/usr/lib/man2html/cgi-bin/man/man2html             regular file       system_u:object_r:man2html_script_exec_t:s0 
+/usr/lib/nspluginwrapper/plugin-config             regular file       system_u:object_r:mozilla_plugin_config_exec_t:s0 
+/usr/share/munin/plugins/http_loadtime             regular file       system_u:object_r:services_munin_plugin_exec_t:s0 
+/usr/lib/nagios/plugins/check_file_age             regular file       system_u:object_r:nagios_admin_plugin_exec_t:s0 
+/usr/lib/nagios/plugins/check_disk_smb             regular file       system_u:object_r:nagios_checkdisk_plugin_exec_t:s0 
+/usr/share/openvswitch/scripts/ovs-ctl             regular file       system_u:object_r:openvswitch_exec_t:s0 
+/usr/lib/pgsql/test/regress/pg_regress             regular file       system_u:object_r:postgresql_exec_t:s0 
+/usr/share/cluster/fence_scsi_check\.pl            regular file       system_u:object_r:fenced_exec_t:s0 
+/usr/share/smolt/client/sendProfile\.py            regular file       system_u:object_r:smoltclient_exec_t:s0 
+/etc/rc\.d/init\.d/mountall-bootclean\.sh          regular file       system_u:object_r:tmpreaper_exec_t:s0 
+/etc/rc\.d/init\.d/mountnfs-bootclean\.sh          regular file       system_u:object_r:tmpreaper_exec_t:s0 
+/usr/share/spamassassin/sa-update\.cron            all files          system_u:object_r:bin_t:s0 
+/usr/share/switchdesk/switchdesk-gui\.py           regular file       system_u:object_r:bin_t:s0 
+/usr/share/authconfig/authconfig-gtk\.py           regular file       system_u:object_r:bin_t:s0 
+/usr/share/authconfig/authconfig-tui\.py           regular file       system_u:object_r:bin_t:s0 
+/usr/share/gnucash/finance-quote-helper            regular file       system_u:object_r:bin_t:s0 
+/usr/share/gitolite/hooks/common/update            regular file       system_u:object_r:bin_t:s0 
+/usr/lib/xfce4/exo-1/exo-compose-mail-1            regular file       system_u:object_r:bin_t:s0 
+/usr/lib/systemd/system/cgdcbxd\.service           regular file       system_u:object_r:cgdcbxd_unit_file_t:s0 
+/usr/libexec/ipa/ipa-dnskeysync-replica            regular file       system_u:object_r:ipa_dnskey_exec_t:s0 
+/usr/lib/systemd/system/ipmievd\.service           regular file       system_u:object_r:ipmievd_unit_file_t:s0 
+/usr/lib/octagaplayer/libapplication\.so           regular file       system_u:object_r:textrel_shlib_t:s0 
+/var/lib/likewise-open/db/lwi_events\.db           regular file       system_u:object_r:eventlogd_var_lib_t:s0 
+/usr/share/logwatch/scripts/logwatch\.pl           regular file       system_u:object_r:logwatch_exec_t:s0 
+/usr/lib/man2html/cgi-bin/man/manwhatis            regular file       system_u:object_r:man2html_script_exec_t:s0 
+/usr/lib/nagios/plugins/check_ide_smart            regular file       system_u:object_r:nagios_checkdisk_plugin_exec_t:s0 
+/etc/sysconfig/oracleasm-_dev_oracleasm            regular file       system_u:object_r:oracleasm_conf_t:s0 
+/usr/lib/polkit-1/polkit-agent-helper-1            regular file       system_u:object_r:policykit_auth_exec_t:s0 
+/usr/lib/systemd/system/sanlock\.service           regular file       system_u:object_r:sanlock_unit_file_t:s0 
+/usr/bin/systemd-tty-ask-password-agent            regular file       system_u:object_r:systemd_passwd_agent_exec_t:s0 
+/etc/NetworkManager/NetworkManager\.conf           all files          system_u:object_r:NetworkManager_etc_rw_t:s0 
+/usr/lib/accountsservice/accounts-daemon           regular file       system_u:object_r:accountsd_exec_t:s0 
+/usr/share/system-config-services/gui\.py          regular file       system_u:object_r:bin_t:s0 
+/usr/lib/avahi/avahi-daemon-check-dns\.sh          regular file       system_u:object_r:bin_t:s0 
+/lib/security/pam_krb5/pam_krb5_storetmp           regular file       system_u:object_r:bin_t:s0 
+/usr/lib/chromium-browser/chrome-sandbox           regular file       system_u:object_r:chrome_sandbox_exec_t:s0 
+/opt/google/chrome/nacl_helper_bootstrap           regular file       system_u:object_r:chrome_sandbox_nacl_exec_t:s0 
+/usr/lib/courier/sqwebmail/cleancache\.pl          regular file       system_u:object_r:courier_sqwebmail_exec_t:s0 
+/usr/lib/mozilla/plugins/libvlcplugin\.so          regular file       system_u:object_r:textrel_shlib_t:s0 
+/etc/likewise-open/likewise-krb5-ad\.conf          regular file       system_u:object_r:likewise_krb5_ad_t:s0 
+/usr/share/munin/plugins/selinux_avcstat           regular file       system_u:object_r:selinux_munin_plugin_exec_t:s0 
+/usr/lib/nagios/plugins/check_linux_raid           regular file       system_u:object_r:nagios_checkdisk_plugin_exec_t:s0 
+/usr/lib/systemd/system/svnserve\.service          regular file       system_u:object_r:svnserve_unit_file_t:s0 
+/usr/bin/aeolus-configserver-thinwrapper           regular file       system_u:object_r:thin_aeolus_configserver_exec_t:s0 
+/usr/share/system-config-netboot/pxeos\.py         regular file       system_u:object_r:bin_t:s0 
+/usr/lib/xfce4/session/balou-export-theme          regular file       system_u:object_r:bin_t:s0 
+/var/lib/servicelog/servicelog\.db-journal         regular file       system_u:object_r:system_db_t:s0 
+/usr/lib/dbus-1/dbus-daemon-launch-helper          regular file       system_u:object_r:dbusd_exec_t:s0 
+/etc/sysconfig/network-scripts/ifup-ipsec          regular file       system_u:object_r:initrc_exec_t:s0 
+/usr/lib/vlc/codec/librealvideo_plugin\.so         regular file       system_u:object_r:textrel_shlib_t:s0 
+/usr/lib/vlc/codec/librealaudio_plugin\.so         regular file       system_u:object_r:textrel_shlib_t:s0 
+/var/lib/likewise/db/lsass-adstate\.filedb         regular file       system_u:object_r:lsassd_var_lib_t:s0 
+/var/lib/likewise-open/krb5-affinity\.conf         regular file       system_u:object_r:netlogond_var_lib_t:s0 
+/usr/bin/systemd-gnome-ask-password-agent          regular file       system_u:object_r:systemd_passwd_agent_exec_t:s0 
+/usr/share/system-config-selinux/polgen\.py        regular file       system_u:object_r:bin_t:s0 
+/usr/share/system-config-nfs/nfs-export\.py        regular file       system_u:object_r:bin_t:s0 
+/usr/share/system-config-printer/applet\.py        regular file       system_u:object_r:bin_t:s0 
+/usr/share/PackageKit/pk-upgrade-distro\.sh        regular file       system_u:object_r:bin_t:s0 
+/usr/lib/xfce4/session/balou-install-theme         regular file       system_u:object_r:bin_t:s0 
+/etc/rc\.d/init\.d/openstack-glance-registry       regular file       system_u:object_r:glance_registry_initrc_exec_t:s0 
+/etc/rc\.d/init\.d/openstack-glance-scrubber       regular file       system_u:object_r:glance_scrubber_initrc_exec_t:s0 
+/usr/lib/xorg/modules/drivers/nvidia_drv\.o        regular file       system_u:object_r:textrel_shlib_t:s0 
+/var/lib/likewise-open/db/lsass-adcache\.db        regular file       system_u:object_r:lsassd_var_lib_t:s0 
+/usr/lib/policykit/polkit-read-auth-helper         regular file       system_u:object_r:policykit_auth_exec_t:s0 
+/usr/share/rhev-agent/LockActiveSession\.py        regular file       system_u:object_r:rhev_agentd_exec_t:s0 
+/usr/share/system-config-netboot/pxeboot\.py       regular file       system_u:object_r:bin_t:s0 
+/usr/lib/xfce4/session/xfsm-shutdown-helper        regular file       system_u:object_r:bin_t:s0 
+/usr/libexec/gnome-system-monitor-mechanism        regular file       system_u:object_r:gnomesystemmm_exec_t:s0 
+/usr/libexec/pegasus/cmpiLMI_Fan-cimprovagt        regular file       system_u:object_r:pegasus_openlmi_system_exec_t:s0 
+/usr/libexec/polkit-1/polkit-agent-helper-1        regular file       system_u:object_r:policykit_auth_exec_t:s0 
+/usr/libexec/selinux/semanage_migrate_store        regular file       system_u:object_r:semanage_exec_t:s0 
+/usr/share/rhn/rhn_applet/needed-packages\.py      regular file       system_u:object_r:bin_t:s0 
+/usr/lib/systemd/system/boinc-client\.service      regular file       system_u:object_r:boinc_unit_file_t:s0 
+/usr/lib/systemd/system/dirsrv-admin\.service      regular file       system_u:object_r:dirsrvadmin_unit_file_t:s0 
+/usr/lib/systemd/system/sanlk-resetd\.service      regular file       system_u:object_r:sanlk_resetd_unit_file_t:s0 
+/etc/dnssec-trigger/dnssec_trigger_server\.key     regular file       system_u:object_r:dnssec_t:s0 
+/usr/libexec/dbus-1/dbus-daemon-launch-helper      regular file       system_u:object_r:dbusd_exec_t:s0 
+/usr/libexec/webmin/vsftpd/webalizer/xfer_log      regular file       system_u:object_r:xferlog_t:s0 
+/usr/share/aeolus-conductor/dbomatic/dbomatic      regular file       system_u:object_r:mongod_exec_t:s0 
+/usr/lib64/security/pam_krb5/pam_krb5_cchelper     regular file       system_u:object_r:bin_t:s0 
+/etc/xorg\.conf\.d/00-system-setup-keyboard\.conf  regular file       system_u:object_r:etc_runtime_t:s0 
+/usr/share/rhn/rhn_applet/eggtrayiconmodule\.so    regular file       system_u:object_r:lib_t:s0 
+/var/lib/likewise-open/db/lsass-adstate\.filedb    regular file       system_u:object_r:lsassd_var_lib_t:s0 
+/usr/libexec/pegasus/cmpiLMI_Realmd-cimprovagt     regular file       system_u:object_r:pegasus_openlmi_services_exec_t:s0 
+/usr/share/cluster/fence_scsi_check_hardreboot     regular file       system_u:object_r:fenced_exec_t:s0 
+/usr/share/system-logviewer/system-logviewer\.py   regular file       system_u:object_r:bin_t:s0 
+/usr/lib/chromium-browser/nacl_helper_bootstrap    regular file       system_u:object_r:chrome_sandbox_nacl_exec_t:s0 
+/usr/libexec/pegasus/cmpiLMI_Account-cimprovagt    regular file       system_u:object_r:pegasus_openlmi_account_exec_t:s0 
+/usr/libexec/pegasus/cmpiLMI_Service-cimprovagt    regular file       system_u:object_r:pegasus_openlmi_admin_exec_t:s0 
+/usr/share/system-config-network/neat-control\.py  regular file       system_u:object_r:bin_t:s0 
+/usr/share/system-config-services/serviceconf\.py  regular file       system_u:object_r:bin_t:s0 
+/usr/share/hal/device-manager/hal-device-manager   regular file       system_u:object_r:bin_t:s0 
+/usr/libexec/pegasus/cmpiLMI_Journald-cimprovagt   regular file       system_u:object_r:pegasus_openlmi_admin_exec_t:s0 
+/usr/libexec/pegasus/cmpiLMI_Hardware-cimprovagt   regular file       system_u:object_r:pegasus_openlmi_storage_exec_t:s0 
+/usr/lib/systemd/system/systemd-resolved\.service  all files          system_u:object_r:systemd_resolved_unit_file_t:s0 
+/usr/lib/systemd/system/systemd-machined\.service  all files          system_u:object_r:systemd_machined_unit_file_t:s0 
+/usr/lib/systemd/system/systemd-networkd\.service  all files          system_u:object_r:systemd_networkd_unit_file_t:s0 
+/usr/share/system-config-lvm/system-config-lvm\.py regular file       system_u:object_r:bin_t:s0 
+/usr/share/system-config-nfs/system-config-nfs\.py regular file       system_u:object_r:bin_t:s0 
+/opt/novell/groupwise/client/lib/libgwapijni\.so\.1 regular file       system_u:object_r:textrel_shlib_t:s0 
+/usr/libexec/pegasus/pycmpiLMI_Storage-cimprovagt  regular file       system_u:object_r:pegasus_openlmi_storage_exec_t:s0 
+/usr/share/ovirt-guest-agent/LockActiveSession\.py regular file       system_u:object_r:rhev_agentd_exec_t:s0 
+/usr/share/system-config-mouse/system-config-mouse regular file       system_u:object_r:bin_t:s0 
+/usr/share/system-config-httpd/system-config-httpd regular file       system_u:object_r:bin_t:s0 
+/usr/share/system-config-users/system-config-users regular file       system_u:object_r:bin_t:s0 
+/etc/X11/xorg\.conf\.d/00-system-setup-keyboard\.conf regular file       system_u:object_r:etc_runtime_t:s0 
+/usr/lib64/nagios/plugins/check_node_accept_status regular file       system_u:object_r:nagios_openshift_plugin_exec_t:s0 
+/usr/libexec/pegasus/cmpiLMI_Networking-cimprovagt regular file       system_u:object_r:pegasus_openlmi_system_exec_t:s0 
+/usr/libexec/pegasus/pycmpiLMI_Software-cimprovagt regular file       system_u:object_r:rpm_exec_t:s0 
+/usr/share/system-config-selinux/selinux_server\.py regular file       system_u:object_r:semanage_exec_t:s0 
+/usr/share/system-config-date/system-config-date\.py regular file       system_u:object_r:bin_t:s0 
+/var/named/chroot/etc/named\.caching-nameserver\.conf regular file       system_u:object_r:named_conf_t:s0 
+/usr/libexec/ipa/com\.redhat\.idm\.trust-fetch-domains regular file       system_u:object_r:ipa_helper_exec_t:s0 
+/usr/lib/vlc/video_chroma/libi420_rgb_mmx_plugin\.so regular file       system_u:object_r:textrel_shlib_t:s0 
+/usr/libexec/pegasus/cmpiLMI_LogicalFile-cimprovagt regular file       system_u:object_r:pegasus_openlmi_logicalfile_exec_t:s0 
+/usr/libexec/kde4/polkit-kde-authentication-agent-1 regular file       system_u:object_r:policykit_auth_exec_t:s0 
+/usr/share/doc/ghc/html/libraries/gen_contents_index regular file       system_u:object_r:bin_t:s0 
+/usr/share/gitolite/hooks/gitolite-admin/post-update regular file       system_u:object_r:bin_t:s0 
+/usr/libexec/ipa/oddjob/org\.freeipa\.server\.conncheck regular file       system_u:object_r:ipa_helper_exec_t:s0 
+/usr/share/system-config-samba/system-config-samba\.py regular file       system_u:object_r:bin_t:s0 
+/usr/lib64/nagios/plugins/check_number_openshift_apps regular file       system_u:object_r:nagios_openshift_plugin_exec_t:s0 
+/usr/share/system-config-display/system-config-display regular file       system_u:object_r:bin_t:s0 
+/usr/lib/systemd/system/systemd-vconsole-setup\.service all files          system_u:object_r:systemd_vconsole_unit_file_t:s0 
+/usr/libexec/pegasus/cmpiLMI_PowerManagement-cimprovagt regular file       system_u:object_r:pegasus_openlmi_system_exec_t:s0 
+/usr/share/system-config-keyboard/system-config-keyboard regular file       system_u:object_r:bin_t:s0 
+/usr/share/system-config-language/system-config-language regular file       system_u:object_r:bin_t:s0 
+/usr/share/system-config-services/system-config-services regular file       system_u:object_r:bin_t:s0 
+/usr/share/system-config-netboot/system-config-netboot\.py regular file       system_u:object_r:bin_t:s0 
+/usr/share/system-config-selinux/system-config-selinux\.py regular file       system_u:object_r:bin_t:s0 
+/usr/share/system-config-soundcard/system-config-soundcard regular file       system_u:object_r:bin_t:s0 
+/usr/libexec/ipa/oddjob/com\.redhat\.idm\.trust-fetch-domains regular file       system_u:object_r:ipa_helper_exec_t:s0 
+/usr/share/system-config-kdump/system-config-kdump-backend\.py regular file       system_u:object_r:kdumpgui_exec_t:s0 
+/usr/share/system-config-selinux/system-config-selinux-dbus\.py regular file       system_u:object_r:semanage_exec_t:s0 
+/usr/share/system-config-samba/system-config-samba-mechanism\.py regular file       system_u:object_r:sambagui_exec_t:s0 
+/usr/share/system-config-rootpassword/system-config-rootpassword regular file       system_u:object_r:bin_t:s0 
+/usr/share/system-config-securitylevel/system-config-securitylevel\.py regular file       system_u:object_r:bin_t:s0 
+/usr/share/system-config-firewall/system-config-firewall-mechanism\.py regular file       system_u:object_r:firewallgui_exec_t:s0 
+/usr/share/system-config-services/system-config-services-mechanism\.py regular file       system_u:object_r:initrc_exec_t:s0 
+/home/[^/]+/.+                                     all files          unconfined_u:object_r:user_home_t:s0 
+/home/[^/]+/.maildir(/.*)?                         all files          unconfined_u:object_r:mail_home_rw_t:s0 
+/home/[^/]+/.*/plugins/nppdf\.so.*                 regular file       unconfined_u:object_r:textrel_shlib_t:s0 
+/home/[^/]+/((www)|(web)|(public_html))(/.+)?      all files          unconfined_u:object_r:httpd_user_content_t:s0 
+/home/[^/]+/((www)|(web)|(public_html))/cgi-bin(/.+)? all files          unconfined_u:object_r:httpd_user_script_exec_t:s0 
+/home/[^/]+/((www)|(web)|(public_html))(/.*)?/\.htaccess regular file       unconfined_u:object_r:httpd_user_htaccess_t:s0 
+/home/[^/]+/((www)|(web)|(public_html))(/.*)?/logs(/.*)? all files          unconfined_u:object_r:httpd_user_ra_content_t:s0 
+/home/[^/]+/a?quota\.(user|group)                  regular file       unconfined_u:object_r:quota_db_t:s0 
+/home/[^/]+/\.nv(/.*)?                             all files          unconfined_u:object_r:cache_home_t:s0 
+/home/[^/]+/bin(/.*)?                              all files          unconfined_u:object_r:home_bin_t:s0 
+/home/[^/]+/\.kde(/.*)?                            all files          unconfined_u:object_r:config_home_t:s0 
+/home/[^/]+/\.orc(/.*)?                            all files          unconfined_u:object_r:gstreamer_home_t:s0 
+/home/[^/]+/\.lyx(/.*)?                            all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.mpd(/.*)?                            all files          unconfined_u:object_r:mpd_home_t:s0 
+/home/[^/]+/\.ssh(/.*)?                            all files          unconfined_u:object_r:ssh_home_t:s0 
+/home/[^/]+/\.uml(/.*)?                            all files          unconfined_u:object_r:uml_rw_t:s0 
+/home/[^/]+/\.pki(/.*)?                            all files          unconfined_u:object_r:home_cert_t:s0 
+/home/[^/]+/\.DCOP.*                               regular file       unconfined_u:object_r:iceauth_home_t:s0 
+/home/[^/]+/\.dmrc.*                               regular file       unconfined_u:object_r:xdm_home_t:s0 
+/home/[^/]+/\.dbus(/.*)?                           all files          unconfined_u:object_r:dbus_home_t:s0 
+/home/[^/]+/\.xine(/.*)?                           all files          unconfined_u:object_r:config_home_t:s0 
+/home/[^/]+/\.java(/.*)?                           all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/Audio(/.*)?                            all files          unconfined_u:object_r:audio_home_t:s0 
+/home/[^/]+/Music(/.*)?                            all files          unconfined_u:object_r:audio_home_t:s0 
+/home/[^/]+/\.cert(/.*)?                           all files          unconfined_u:object_r:home_cert_t:s0 
+/home/[^/]+/\.wine(/.*)?                           all files          unconfined_u:object_r:wine_home_t:s0 
+/home/[^/]+/\.xauth.*                              regular file       unconfined_u:object_r:xauth_home_t:s0 
+/home/[^/]+/\.Xauth.*                              regular file       unconfined_u:object_r:xauth_home_t:s0 
+/home/[^/]+/\.local.*                              all files          unconfined_u:object_r:gconf_home_t:s0 
+/home/[^/]+/\.gvfs/.*                              all files          <<None>>
+/home/[^/]+/\.cache(/.*)?                          all files          unconfined_u:object_r:cache_home_t:s0 
+/home/[^/]+/\.gnupg(/.+)?                          all files          unconfined_u:object_r:gpg_secret_t:s0 
+/home/[^/]+/\.irssi(/.*)?                          all files          unconfined_u:object_r:irc_home_t:s0 
+/home/[^/]+/irclog(/.*)?                           all files          unconfined_u:object_r:irc_home_t:s0 
+/home/[^/]+/\.adobe(/.*)?                          all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.gnash(/.*)?                          all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.webex(/.*)?                          all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.pulse(/.*)?                          all files          unconfined_u:object_r:pulseaudio_home_t:s0 
+/home/[^/]+/\.pyzor(/.*)?                          all files          unconfined_u:object_r:spamc_home_t:s0 
+/home/[^/]+/\.razor(/.*)?                          all files          unconfined_u:object_r:spamc_home_t:s0 
+/home/[^/]+/\.spamd(/.*)?                          all files          unconfined_u:object_r:spamc_home_t:s0 
+/home/[^/]+/\.debug(/.*)?                          all files          <<None>>
+/home/[^/]+/vmware(/.*)?                           all files          unconfined_u:object_r:vmware_file_t:s0 
+/home/[^/]+/\.fonts(/.*)?                          all files          unconfined_u:object_r:user_fonts_t:s0 
+/home/[^/]+/\.gconf(d)?(/.*)?                      all files          unconfined_u:object_r:gconf_home_t:s0 
+/home/[^/]+/\.yubico(/.*)?                         all files          unconfined_u:object_r:auth_home_t:s0 
+/home/[^/]+/\.config(/.*)?                         all files          unconfined_u:object_r:config_home_t:s0 
+/home/[^/]+/\.gnome2(/.*)?                         all files          unconfined_u:object_r:gnome_home_t:s0 
+/home/[^/]+/\.kismet(/.*)?                         all files          unconfined_u:object_r:kismet_home_t:s0 
+/home/[^/]+/\.galeon(/.*)?                         all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.spicec(/.*)?                         all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.IBMERS(/.*)?                         all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/Maildir(/.*)?                          all files          unconfined_u:object_r:mail_home_rw_t:s0 
+/home/[^/]+/\.screen(/.*)?                         all files          unconfined_u:object_r:screen_home_t:s0 
+/home/[^/]+/\.tvtime(/.*)?                         all files          unconfined_u:object_r:tvtime_home_t:s0 
+/home/[^/]+/\.vmware(/.*)?                         all files          unconfined_u:object_r:vmware_file_t:s0 
+/home/[^/]+/POkemon.*(/.*)?                        all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.vmware[^/]*/.*\.cfg                  regular file       unconfined_u:object_r:vmware_conf_t:s0 
+/home/[^/]+/\.forward[^/]*                         regular file       unconfined_u:object_r:mail_home_t:s0 
+/home/[^/]+/\.Private(/.*)?                        all files          unconfined_u:object_r:ecryptfs_t:s0 
+/home/[^/]+/\.mozilla(/.*)?                        all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.phoenix(/.*)?                        all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.icedtea(/.*)?                        all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.mplayer(/.*)?                        all files          unconfined_u:object_r:mplayer_home_t:s0 
+/home/[^/]+/\.libvirt(/.*)?                        all files          unconfined_u:object_r:virt_home_t:s0 
+/home/[^/]+/\.fonts\.d(/.*)?                       all files          unconfined_u:object_r:user_fonts_config_t:s0 
+/home/[^/]+/\.ecryptfs(/.*)?                       all files          unconfined_u:object_r:ecryptfs_t:s0 
+/home/[^/]+/\.netscape(/.*)?                       all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.virtinst(/.*)?                       all files          unconfined_u:object_r:virt_home_t:s0 
+/home/[^/]+/public_git(/.*)?                       all files          unconfined_u:object_r:git_user_content_t:s0 
+/home/[^/]+/\.color/icc(/.*)?                      all files          unconfined_u:object_r:icc_data_home_t:s0 
+/home/[^/]+/\.quakelive(/.*)?                      all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.ICAClient(/.*)?                      all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.local/bin(/.*)?                      all files          unconfined_u:object_r:home_bin_t:s0 
+/home/[^/]+/\.wireshark(/.*)?                      all files          unconfined_u:object_r:wireshark_home_t:s0 
+/home/[^/]+/\.cache/gdm(/.*)?                      all files          unconfined_u:object_r:xdm_home_t:s0 
+/home/[^/]+/\.serverauth.*                         regular file       unconfined_u:object_r:xauth_home_t:s0 
+/home/[^/]+/\.Xauthority.*                         regular file       unconfined_u:object_r:xauth_home_t:s0 
+/home/[^/]+/\.gstreamer-.*                         all files          unconfined_u:object_r:gstreamer_home_t:s0 
+/home/[^/]+/\.nv/GLCache(/.*)?                     all files          unconfined_u:object_r:gstreamer_home_t:s0 
+/home/[^/]+/\.macromedia(/.*)?                     all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.thumbnails(/.*)?                     all files          unconfined_u:object_r:thumb_home_t:s0 
+/home/[^/]+/\.fontconfig(/.*)?                     all files          unconfined_u:object_r:user_fonts_cache_t:s0 
+/home/[^/]+/\.fonts/auto(/.*)?                     all files          unconfined_u:object_r:user_fonts_cache_t:s0 
+/home/[^/]+/\.ansible/cp/.*                        socket             unconfined_u:object_r:ssh_home_t:s0 
+/home/[^/]+/missfont\.log.*                        all files          unconfined_u:object_r:thumb_home_t:s0 
+/home/[^/]+/\.cache/dconf(/.*)?                    all files          unconfined_u:object_r:config_home_t:s0 
+/home/[^/]+/\.local/share(/.*)?                    all files          unconfined_u:object_r:data_home_t:s0 
+/home/[^/]+/\.thunderbird(/.*)?                    all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.esmtp_queue(/.*)?                    all files          unconfined_u:object_r:mail_home_rw_t:s0 
+/home/[^/]+/\.cache/wocky(/.*)?                    all files          unconfined_u:object_r:telepathy_gabble_cache_home_t:s0 
+/home/[^/]+/\.texlive2012(/.*)?                    all files          unconfined_u:object_r:texlive_home_t:s0 
+/home/[^/]+/\.texlive2013(/.*)?                    all files          unconfined_u:object_r:texlive_home_t:s0 
+/home/[^/]+/\.texlive2014(/.*)?                    all files          unconfined_u:object_r:texlive_home_t:s0 
+/home/[^/]+/\.fonts\.cache-.*                      regular file       unconfined_u:object_r:user_fonts_cache_t:s0 
+/home/[^/]+/\.ICEauthority.*                       regular file       unconfined_u:object_r:iceauth_home_t:s0 
+/home/[^/]+/\.gcjwebplugin(/.*)?                   all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.grl-podcasts(/.*)?                   all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.polipo-cache(/.*)?                   all files          unconfined_u:object_r:polipo_cache_home_t:s0 
+/home/[^/]+/\.config/pulse(/.*)?                   all files          unconfined_u:object_r:pulseaudio_home_t:s0 
+/home/[^/]+/\.spamassassin(/.*)?                   all files          unconfined_u:object_r:spamc_home_t:s0 
+/home/[^/]+/\.libvirt/qemu(/.*)?                   all files          unconfined_u:object_r:svirt_home_t:s0 
+/home/[^/]+/\.cache/GLCache(/.*)?                  all files          unconfined_u:object_r:gstreamer_home_t:s0 
+/home/[^/]+/\.cache/mozilla(/.*)?                  all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.icedteaplugin(/.*)?                  all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/zimbrauserdata(/.*)?                   all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.cache/libvirt(/.*)?                  all files          unconfined_u:object_r:virt_home_t:s0 
+/home/[^/]+/\.cache/chromium(/.*)?                 all files          unconfined_u:object_r:chrome_sandbox_home_t:s0 
+/home/[^/]+/\.config/libvirt(/.*)?                 all files          unconfined_u:object_r:virt_home_t:s0 
+/home/[^/]+/VirtualMachines(/.*)?                  all files          unconfined_u:object_r:virt_home_t:s0 
+/home/[^/]+/\.xsession-errors.*                    regular file       unconfined_u:object_r:xdm_home_t:s0 
+/home/[^/]+/\.gnome2/keyrings(/.*)?                all files          unconfined_u:object_r:gkeyringd_gnome_home_t:s0 
+/home/[^/]+/\.local/share/icc(/.*)?                all files          unconfined_u:object_r:icc_data_home_t:s0 
+/home/[^/]+/\.config/chromium(/.*)?                all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.cache/telepathy(/.*)?                all files          unconfined_u:object_r:telepathy_cache_home_t:s0 
+/home/[^/]+/\.mission-control(/.*)?                all files          unconfined_u:object_r:telepathy_mission_control_home_t:s0 
+/home/[^/]+/cxoffice/bin/wine.+                    regular file       unconfined_u:object_r:wine_exec_t:s0 
+/home/[^/]+/\.cache/gstreamer-.*                   all files          unconfined_u:object_r:gstreamer_home_t:s0 
+/home/[^/]+/\.juniper_networks(/.*)?               all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.cache/thumbnails(/.*)?               all files          unconfined_u:object_r:thumb_home_t:s0 
+/home/[^/]+/\.cache/icedtea-web(/.*)?              all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.cache/gnome-boxes(/.*)?              all files          unconfined_u:object_r:virt_home_t:s0 
+/home/[^/]+/\.local/share/fonts(/.*)?              all files          unconfined_u:object_r:user_fonts_t:s0 
+/home/[^/]+/\.telepathy-sunshine(/.*)?             all files          unconfined_u:object_r:telepathy_sunshine_home_t:s0 
+/home/[^/]+/\.cache/libvirt/qemu(/.*)?             all files          unconfined_u:object_r:svirt_home_t:s0 
+/home/[^/]+/\.cache/google-chrome(/.*)?            all files          unconfined_u:object_r:chrome_sandbox_home_t:s0 
+/home/[^/]+/\.local/share/systemd(/.*)?            all files          unconfined_u:object_r:systemd_home_t:s0 
+/home/[^/]+/\.config/libvirt/qemu(/.*)?            all files          unconfined_u:object_r:svirt_home_t:s0 
+/home/[^/]+/VirtualMachines/isos(/.*)?             all files          unconfined_u:object_r:virt_content_t:s0 
+/home/[^/]+/\.local/share/keyrings(/.*)?           all files          unconfined_u:object_r:gkeyringd_gnome_home_t:s0 
+/home/[^/]+/\.local/share/TpLogger(/.*)?           all files          unconfined_u:object_r:telepathy_logger_data_home_t:s0 
+/home/[^/]+/\.local/share/telepathy(/.*)?          all files          unconfined_u:object_r:telepathy_data_home_t:s0 
+/home/[^/]+/\.cache/libvirt-sandbox(/.*)?          all files          unconfined_u:object_r:virt_home_t:s0 
+/home/[^/]+/\.cache/telepathy/logger(/.*)?         all files          unconfined_u:object_r:telepathy_logger_cache_home_t:s0 
+/home/[^/]+/\.cache/telepathy/gabble(/.*)?         all files          unconfined_u:object_r:telepathy_gabble_cache_home_t:s0 
+/home/[^/]+/\.local/share/libvirt/boot(/.*)?       all files          unconfined_u:object_r:svirt_home_t:s0 
+/home/[^/]+/\.local/share/libvirt/images(/.*)?     all files          unconfined_u:object_r:svirt_home_t:s0 
+/home/[^/]+/\.cache/google-chrome-unstable(/.*)?   all files          unconfined_u:object_r:chrome_sandbox_home_t:s0 
+/home/[^/]+/\.cache/telepathy/avatars/gabble(/.*)? all files          unconfined_u:object_r:telepathy_gabble_cache_home_t:s0 
+/home/[^/]+/\.local/share/gnome-boxes/images(/.*)? all files          unconfined_u:object_r:svirt_home_t:s0 
+/home/[^/]+/\.local/share/telepathy/mission-control(/.*)? all files          unconfined_u:object_r:telepathy_mission_control_data_home_t:s0 
+/home/[^/]+/\.local/share/networkmanagement/certificates(/.*)? all files          unconfined_u:object_r:home_cert_t:s0 
+/home/[^/]+/\.kde/share/apps/networkmanagement/certificates(/.*)? all files          unconfined_u:object_r:home_cert_t:s0 
+/home/[^/]+                                        directory          unconfined_u:object_r:user_home_dir_t:s0 
+/home/[^/]+                                        symbolic link      unconfined_u:object_r:user_home_dir_t:s0 
+/home/[^/]+/abc                                    regular file       unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/tmp                                    directory          unconfined_u:object_r:user_tmp_t:s0 
+/home/[^/]+/\.tmp                                  directory          unconfined_u:object_r:user_tmp_t:s0 
+/home/[^/]+/\.mailrc                               regular file       unconfined_u:object_r:mail_home_t:s0 
+/home/[^/]+/\.my\.cnf                              regular file       unconfined_u:object_r:mysqld_home_t:s0 
+/home/[^/]+/\.polipo                               regular file       unconfined_u:object_r:polipo_config_home_t:s0 
+/home/[^/]+/\.rlogin                               regular file       unconfined_u:object_r:rlogind_home_t:s0 
+/home/[^/]+/\.rhosts                               regular file       unconfined_u:object_r:rlogind_home_t:s0 
+/home/[^/]+/\.shosts                               all files          unconfined_u:object_r:ssh_home_t:s0 
+/home/[^/]+/\.ircmotd                              regular file       unconfined_u:object_r:irc_home_t:s0 
+/home/[^/]+/\.k5login                              regular file       unconfined_u:object_r:krb5_home_t:s0 
+/home/[^/]+/\.k5users                              regular file       unconfined_u:object_r:krb5_home_t:s0 
+/home/[^/]+/\.manpath                              regular file       unconfined_u:object_r:mandb_home_t:s0 
+/home/[^/]+/\.asoundrc                             regular file       unconfined_u:object_r:alsa_home_t:s0 
+/home/[^/]+/\.esd_auth                             regular file       unconfined_u:object_r:pulseaudio_home_t:s0 
+/home/[^/]+/\.screenrc                             regular file       unconfined_u:object_r:screen_home_t:s0 
+/home/[^/]+/\.cvsignore                            regular file       unconfined_u:object_r:cvs_home_t:s0 
+/home/[^/]+/\.hushlogin                            regular file       unconfined_u:object_r:local_login_home_t:s0 
+/home/[^/]+/\.tmux\.conf                           regular file       unconfined_u:object_r:screen_home_t:s0 
+/home/[^/]+/\.Xdefaults                            all files          unconfined_u:object_r:config_home_t:s0 
+/home/[^/]+/dead\.letter                           regular file       unconfined_u:object_r:mail_home_t:s0 
+/home/[^/]+/\.procmailrc                           regular file       unconfined_u:object_r:procmail_home_t:s0 
+/home/[^/]+/\.fonts\.conf                          regular file       unconfined_u:object_r:user_fonts_config_t:s0 
+/home/[^/]+/\.fetchmailrc                          regular file       unconfined_u:object_r:fetchmail_home_t:s0 
+/home/[^/]+/\.pulse-cookie                         regular file       unconfined_u:object_r:pulseaudio_home_t:s0 
+/home/[^/]+/\.grl-bookmarks                        all files          unconfined_u:object_r:gstreamer_home_t:s0 
+/home/[^/]+/\.gnashpluginrc                        all files          unconfined_u:object_r:mozilla_home_t:s0 
+/home/[^/]+/\.gnupg/log-socket                     all files          unconfined_u:object_r:gpg_agent_tmp_t:s0 
+/home/[^/]+/\.grl-metadata-store                   all files          unconfined_u:object_r:gstreamer_home_t:s0 
+/home/[^/]+/\.google_authenticator                 all files          unconfined_u:object_r:auth_home_t:s0 
+/home/[^/]+/\.cache/\.mc_connections               regular file       unconfined_u:object_r:telepathy_mission_control_cache_home_t:s0 
+/home/[^/]+/\.google_authenticator~                all files          unconfined_u:object_r:auth_home_t:s0 
+/home/a?quota\.(user|group)                        regular file       system_u:object_r:quota_db_t:s0 
+/home/lost\+found/.*                               all files          <<None>>
+/home                                              directory          system_u:object_r:home_root_t:s0 
+/home                                              symbolic link      system_u:object_r:home_root_t:s0 
+/home/\.journal                                    all files          <<None>>
+/home/lost\+found                                  directory          system_u:object_r:lost_found_t:s0 
+/tmp/gconfd-[^/]+/.*                               regular file       unconfined_u:object_r:gconf_tmp_t:s0 
+/tmp/gconfd-[^/]+                                  directory          unconfined_u:object_r:user_tmp_t:s0 
+
+Эквивалентность файловых контекстов дистрибутива SELinux 
+
+/usr/local/lib64 = /usr/lib
+/etc/systemd/system = /usr/lib/systemd/system
+/run/systemd/system = /usr/lib/systemd/system
+/run/systemd/generator = /usr/lib/systemd/system
+/var/home = /home
+/sbin = /usr/sbin
+/var/roothome = /root
+/usr/lib64 = /usr/lib
+/var/lib/xguest/home = /home
+/var/named/chroot/lib64 = /usr/lib
+/var/named/chroot/usr/lib64 = /usr/lib
+/run = /var/run
+/usr/local/lib32 = /usr/lib
+/lib64 = /usr/lib
+/lib = /usr/lib
+/run/lock = /var/lock
+
+
+
