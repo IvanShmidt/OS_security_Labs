@@ -1,18 +1,18 @@
-26  ls -l /dev/sda{,[123]}
-27  lsblk --list
-28  cat /proc/diskstats 
-29  cat /proc/devices 
-30  sudo dd if=/dev/zero of=./fs.img bs=1M count=10
-31  sudo losetup --find --show ./fs.img
-32  sudo losetup --list
-33  sudo mkfs -t ext4 /dev/loop0
-34  sudo blkid /dev/loop0
-35  sudo mount /dev/loop0 /mnt
-36  sudo mount | grep /mnt
-37  sudo df -h /mnt
-38  sudo df -hi /mnt
-39  sudo umount /dev/loop0
-40  sudo tune2fs -l /dev/loop0
-41  sudo losetup --detach /dev/loop0
-42  sudo losetup --list
-43  history > hist_filesystem.txt
+6  ls -l /dev/sda{,[123]}
+7  lsblk --list
+8  cat /proc/diskstats 
+9  cat /proc/devices 
+10  sudo dd if=/dev/zero of=./fs.img bs=1M count=10
+11  sudo losetup --find --show ./fs.img
+12  sudo losetup --list
+13  sudo mkfs -t ext4 /dev/loop0
+14  sudo blkid /dev/loop0
+15  sudo mount /dev/loop0 /mnt
+16  sudo mount | grep /mnt
+17  sudo df -h /mnt
+18  sudo df -hi /mnt
+19  sudo umount /dev/loop0
+20  sudo tune2fs -l /dev/loop0
+21  sudo losetup --detach /dev/loop0
+22  sudo losetup --list
+23  history > hist_filesystem.txt
