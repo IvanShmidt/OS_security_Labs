@@ -15,4 +15,4 @@
 40  sudo tune2fs -l /dev/loop0
 41  sudo losetup --detach /dev/loop0
 42  sudo losetup --list
-43 history > hist_filesystem.txt
+43  history > hist_filesystem.txt
