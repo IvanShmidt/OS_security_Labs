@@ -286,10 +286,4 @@
   394  rpmbuild -ba B16-50522.spec 
   395  nano B16-50522.spec 
   396  rpmbuild -ba B16-50522.spec 
-  397  gpg2 --gen-key
-  398  sudo yum install heveged
-  399  cd /home/vanes/
-  400  ls
-  401  cd Labs_bos/
-  402  ls
-  403  history > hist.txt
+  397 
